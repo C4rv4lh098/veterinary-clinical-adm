@@ -1,1 +1,1 @@
-docker-compose exec -T agendamento composer run-script build:app
+docker-compose exec -T schedulingservice composer run-script build:app

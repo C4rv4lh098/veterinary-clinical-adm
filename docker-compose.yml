@@ -21,11 +21,12 @@ services:
   #           - 8080:8080
 
   db:
-    image: mysql:5.6
+    image: mysql:8
     ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=password
+      # - MYSQL_DATABASE=bootdb
     labels:
       - environment:development
 
@@ -39,3 +40,21 @@ services:
       - PMA_ARBITRARY=1
     labels:
       - environment:development
+
+  schedulingservice:
+    image: schedulingservice
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+ 
+  # mysqldb:
+  #   image: mysql:8
+  #   networks:
+  #     - employee-mysql
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=root
+  #     - MYSQL_DATABASE=bootdb 
+
+  # docker image build -t schedulingservice .
+  # docker container run --name mysqldb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=veterinary -d mysql:8
