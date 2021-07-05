@@ -6,7 +6,8 @@ services:
       - 20080:80
     volumes:
       - ./frontend-angular/dist/frontend-angular:/usr/share/nginx/html
-
+    links:
+      - schedulingservice
   # db:
   #   image: mysql
   #   command: --default-authentication-plugin=mysql_native_password
@@ -19,15 +20,17 @@ services:
   #   restart: always
   #   ports:
   #           - 8080:8080
-
+# ---------------------
   db:
-    image: mysql:5.6
+    image: mysql:8
     ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=password
     labels:
       - environment:development
+    # networks:
+    #   - scheduling-mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -36,6 +39,57 @@ services:
     ports:
       - "8888:80"
     environment:
-      - PMA_ARBITRARY=1
-    labels:
-      - environment:development
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=password  
+    # networks:
+    #   - scheduling-mysql
+  # -----------------------------------
+    # labels:
+    #   - environment:development
+
+#   db:
+#     image: mysql
+#     command: --default-authentication-plugin=mysql_native_password
+#     restart: always
+#     environment:
+#       MYSQL_ROOT_PASSWORD: senha
+#     networks:
+#       - spring
+#     ports:
+#       - 33060:3306
+#   adminer:
+#     image: adminer
+#     restart: always
+#     ports:
+#       - 8080:8080
+#     networks:
+#       - spring
+# networks:
+#   spring:
+#     driver: bridge
+  
+  schedulingservice:
+    build:
+      context: ./
+      dockerfile: ./schedulingservice/Dockerfile
+    # image: schedulingservice
+
+    # networks:
+    #   - scheduling-mysql
+    # networks:
+    #   - spring
+    ports:
+      - "8081:8081"
+      - "5005:5005"
+    volumes:
+      - "./schedulingservice:/home/schedulingservice"
+    tty: true
+    # environment:
+    #   - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+    #   - PROFILE=dev
+    depends_on: 
+      - db
+
+  # networks:
+  #   scheduling-mysql:
+  #     driver: bridge
