@@ -1,4 +1,8 @@
+version: '3'
 services:
+
+
+  # docker container run --name mysqldb --network employee-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=bootdb -d mysql:8
 
   frontend-angular:
     image: nginx:1.17.10-alpine
@@ -21,17 +25,17 @@ services:
   #   ports:
   #           - 8080:8080
 # ---------------------
-  db:
-    image: mysql:8
-    ports:
-      - "3306:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=password
-      # - MYSQL_DATABASE=bootdb
-    labels:
-      - environment:development
-    # networks:
-    #   - scheduling-mysql
+  # db:
+  #   image: mysql:8
+  #   ports:
+  #     - "3306:3306"
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=password
+  #     # - MYSQL_DATABASE=bootdb
+  #   labels:
+  #     - environment:development
+  #   networks:
+  #     - scheduling-mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -48,48 +52,39 @@ services:
     # labels:
     #   - environment:development
 
-#   db:
-#     image: mysql
-#     command: --default-authentication-plugin=mysql_native_password
-#     restart: always
-#     environment:
-#       MYSQL_ROOT_PASSWORD: senha
-#     networks:
-#       - spring
-#     ports:
-#       - 33060:3306
-#   adminer:
-#     image: adminer
-#     restart: always
-#     ports:
-#       - 8080:8080
-#     networks:
-#       - spring
-# networks:
-#   spring:
-#     driver: bridge
   
   schedulingservice:
     build:
       context: ./
       dockerfile: ./schedulingservice/Dockerfile
-    # image: schedulingservice
+    image: schedulingservice/api
 
-    # networks:
-    #   - scheduling-mysql
-    # networks:
-    #   - spring
     ports:
-      - "8081:8081"
+      - "8080:8080"
       - "5005:5005"
     volumes:
       - "./schedulingservice:/home/schedulingservice"
-    tty: true
+    environment:
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - PROFILE=dev
+    links:
+      - db
+      
+  db:
+    image: mysql:5.6
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_DATABASE=veterinary
+      - MYSQL_USER=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./docker/volume_mysql:/var/lib/mysql
+
     # environment:
     #   - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
     #   - PROFILE=dev
-    depends_on: 
-      - db
 
   # networks:
   #   scheduling-mysql:

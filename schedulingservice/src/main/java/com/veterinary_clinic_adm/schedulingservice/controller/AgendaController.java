@@ -21,7 +21,7 @@ import java.util.Map;
 import javax.validation.Valid;
 
 @RestController @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/v1")
+@RequestMapping("/api")
 public class AgendaController {
 
     @Autowired
@@ -52,7 +52,7 @@ public class AgendaController {
                 .orElseThrow(()-> new ResourceNotFoundException("Consulta não encontrada com esse Id::" + agendaId));
         agenda.setTutorName(agendaDetails.getTutorName());
         agenda.setAnimalName(agendaDetails.getAnimalName());
-        agenda.setDate(agendaDetails.getDate());
+        agenda.setDatee(agendaDetails.getDatee());
         agenda.setStartHour(agendaDetails.getStartHour());
         agenda.setEndHour(agendaDetails.getEndHour());
         final Agenda updateAgenda = agendaRepository.save(agenda);
