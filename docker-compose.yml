@@ -10,8 +10,8 @@ services:
       - 20080:80
     volumes:
       - ./frontend-angular/dist/frontend-angular:/usr/share/nginx/html
-    links:
-      - schedulingservice
+    # links:
+    #   - schedulingservice
   # db:
   #   image: mysql
   #   command: --default-authentication-plugin=mysql_native_password
@@ -42,10 +42,12 @@ services:
     depends_on:
       - db
     ports:
-      - "8888:80"
+      - "8888:88"
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=password  
+      - MYSQL_DATABASE=password 
+    links:
+      - db 
     # networks:
     #   - scheduling-mysql
   # -----------------------------------
@@ -53,32 +55,51 @@ services:
     #   - environment:development
 
   
-  schedulingservice:
+  # schedulingservice:
+  #   build:
+  #     context: ./
+  #     dockerfile: ./schedulingservice/Dockerfile
+  #   image: schedulingservice/api
+
+  #   ports:
+  #     - "8080:8080"
+  #     - "5005:5005"
+  #   volumes:
+  #     - "./schedulingservice:/home/schedulingservice"
+  #   environment:
+  #     - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+  #     - PROFILE=dev
+  #   links:
+  #     - db
+
+  agendamento:
     build:
       context: ./
-      dockerfile: ./schedulingservice/Dockerfile
-    image: schedulingservice/api
+      dockerfile: ./agendamento/Dockerfile
+    image: agendamento/api
 
     ports:
       - "8080:8080"
       - "5005:5005"
     volumes:
-      - "./schedulingservice:/home/schedulingservice"
+      - "./agendamento:/home/agendamento"
     environment:
       - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
       - PROFILE=dev
     links:
       - db
+    # tty: true
       
   db:
-    image: mysql:5.6
+    image: mysql:latest
     ports:
       - '3306:3306'
     environment:
       - MYSQL_ROOT_HOST=%
       - MYSQL_DATABASE=veterinary
-      - MYSQL_USER=root
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      # - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=password
+      # - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - ./docker/volume_mysql:/var/lib/mysql
 
