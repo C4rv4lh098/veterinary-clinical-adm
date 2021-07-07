@@ -42,7 +42,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8888:88"
+      - "8888:80"
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=password 
@@ -55,22 +55,22 @@ services:
     #   - environment:development
 
   
-  # schedulingservice:
-  #   build:
-  #     context: ./
-  #     dockerfile: ./schedulingservice/Dockerfile
-  #   image: schedulingservice/api
+  schedulingservice:
+    build:
+      context: ./
+      dockerfile: ./schedulingservice/Dockerfile
+    image: schedulingservice/api
 
-  #   ports:
-  #     - "8080:8080"
-  #     - "5005:5005"
-  #   volumes:
-  #     - "./schedulingservice:/home/schedulingservice"
-  #   environment:
-  #     - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
-  #     - PROFILE=dev
-  #   links:
-  #     - db
+    ports:
+      - "8081:8081"
+      - "5006:5006"
+    volumes:
+      - "./schedulingservice:/home/schedulingservice"
+    environment:
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - PROFILE=dev
+    links:
+      - db
 
   agendamento:
     build:
