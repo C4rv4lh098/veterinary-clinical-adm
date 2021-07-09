@@ -9,13 +9,13 @@ CREATE TABLE `address` (
   `district` VARCHAR(140) NOT NULL,
   `number` VARCHAR(3) NOT NULL,
   PRIMARY KEY (`address_id`));
-
+  
   CREATE TABLE `city` (
   `city_id` INT NOT NULL,
   `county` VARCHAR(80) NOT NULL,
   `state` VARCHAR(80) NOT NULL,
   PRIMARY KEY (`city_id`));
-
+  
   CREATE TABLE `tutor` (
   `tutor_id` INT NOT NULL,
   `cpf` VARCHAR(11) NOT NULL,
@@ -24,13 +24,13 @@ CREATE TABLE `address` (
   `age` VARCHAR(2) NOT NULL,
   `email` VARCHAR(256) NOT NULL,
   `nationality` VARCHAR(20) NOT NULL,
-  `phone` VARCHAR(11)
+  `phone` VARCHAR(11),
   `city_id` INT NOT NULL,
   `address_id` INT NOT NULL,
-  PRIMARY KEY (`address_id`)
-  FOREIGN KEY (city_id) reference city(city_id)
-  FOREIGN KEY (address_id) reference address(address_id));
-
+  PRIMARY KEY (`address_id`),
+  FOREIGN KEY (city_id) references city(city_id),
+  FOREIGN KEY (address_id) references address(address_id));
+  
   CREATE TABLE `animal` (
   `animal_id` INT NOT NULL,
   `age` VARCHAR(2) NOT NULL,
@@ -38,9 +38,9 @@ CREATE TABLE `address` (
   `species` VARCHAR(40) NOT NULL,
   `sex` VARCHAR(1) NOT NULL,
   `tutor_id` INT NOT NULL,
-  PRIMARY KEY (`animal_id`)
-  FOREIGN KEY (tutor_id) reference tutor(tutor_id));
-
+  PRIMARY KEY (`animal_id`),
+  FOREIGN KEY (tutor_id) references tutor(tutor_id));
+  
   CREATE TABLE `agendamento` (
   `consulta_id` INT NOT NULL,
   `data` DATE NOT NULL,
@@ -48,7 +48,6 @@ CREATE TABLE `address` (
   `horaout` VARCHAR(5) NOT NULL,
   `animal_id` INT NOT NULL,
   `tutor_id` INT NOT NULL,
-  PRIMARY KEY (`consulta_id`)
-  FOREIGN KEY (animal_id) reference animal(anima_id),
-  FOREIGN KEY (tutor_id) reference tutor(tutor_id));
-
+  PRIMARY KEY (`consulta_id`),
+  FOREIGN KEY (animal_id) references animal(anima_id),
+  FOREIGN KEY (tutor_id) references tutor(tutor_id));
