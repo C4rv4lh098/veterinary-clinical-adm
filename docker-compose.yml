@@ -63,7 +63,7 @@ services:
 
     ports:
       - "8081:8081"
-      - "5006:5006"
+      - "5056:5006"
     volumes:
       - "./schedulingservice:/home/schedulingservice"
     environment:
@@ -89,6 +89,23 @@ services:
     links:
       - db
     # tty: true
+  
+  register:
+    build:
+      context: ./
+      dockerfile: ./register/Dockerfile
+    image: register/api
+
+    ports:
+      - "8082:8082"
+      - "5007:5007"
+    volumes:
+      - "./register:/home/register"
+    environment:
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - PROFILE=dev
+    links:
+      - db
       
   db:
     image: mysql:latest
