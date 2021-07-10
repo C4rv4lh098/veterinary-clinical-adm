@@ -12,9 +12,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.*;
 
 @Entity
-@Table(value = "city")
+@Table(value = "address")
 
-public class City{
+public class Adress{
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -24,16 +24,19 @@ public class City{
    @Column(name = "id")
    private Long id;
 
-   @Column(name = "name")
-   private String name;
+   @Column(name = "cep")
+   private String cep;
 
-   @Column(name = "country")
-   private String country;
+   @Column(name = "street")
+   private String street;
 
-   @Column(name = "state")
-   private String state;
+   @Column(name = "district")
+   private String district;
 
-   @OneToMany
+   @Column(name = "number")
+   private String number;
+
+   @OneToOne
    private Tutor tutor_id;
 
 
@@ -42,19 +45,24 @@ public class City{
    public void setId(String id) { this.id = id; }
 
 
-   public String getName() { return name; }
+   public String getCep() { return cep; }
    
-   public void setName(String name) { this.name = name; }
+   public void setCep(String cep) { this.cep = cep; }
 
 
-   public String getCountry() { return country; }
+   public String getStreet() { return street; }
    
-   public void setCountry(String country) { this.country = country; }
+   public void setStreet(String street) { this.street = street; }
 
 
-   public String getState() { return state; }
+   public String getDistrict() { return district; }
    
-   public void setState(String state) { this.state = state; }
+   public void setDistrict(String district) { this.district = district; }
+
+
+   public String getNumber() { return number; }
+   
+   public void setNumber(String number) { this.number = number; }
 
 
    public String getTutorId() { return tutor_id; }
