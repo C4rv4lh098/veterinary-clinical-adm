@@ -3,23 +3,41 @@ package com.veterinary_clinic_adm.register.controller;
 import com.veterinary_clinic_adm.register.controller.dto.AddressRq;
 import com.veterinary_clinic_adm.register.controller.dto.AddressRs;
 import com.veterinary_clinic_adm.register.model.Address;
-import com.veterinary_clinic_adm.register.repository.AddressCustomRepository;
+// import com.veterinary_clinic_adm.register.repository.AddressCustomRepository;
 import com.veterinary_clinic_adm.register.repository.AddressRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.validation.Valid;
+
+
 @RestController
 @RequestMapping("/address")
 public class AddressController {
 
     private final AddressRepository addressRepository;
-    private final AddressCustomRepository addressCustomRepository;
+    // private final AddressCustomRepository addressCustomRepository;
 
-    public AddressController(AddressRepository addressRepository, AddressCustomRepository addressCustomRepository) {
+    public AddressController(AddressRepository addressRepository) {
         this.addressRepository = addressRepository;
-        this.addressCustomRepository = addressCustomRepository;
+        // this.addressCustomRepository = addressCustomRepository;
     }
 
     @GetMapping("/")
@@ -68,7 +86,7 @@ public class AddressController {
 
     @GetMapping("/filter")
     public List<AddressRs> findAddressByCep(@RequestParam("cep") String cep) {
-        return this.adressRepository.findByNomeContains(name)
+        return this.addressRepository.findByCepContains(cep)
                 .stream()
                 .map(AddressRs::converter)
                 .collect(Collectors.toList());

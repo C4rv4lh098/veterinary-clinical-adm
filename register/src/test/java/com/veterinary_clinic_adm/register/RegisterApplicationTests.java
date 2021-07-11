@@ -1,13 +1,13 @@
-package com.veterinary_clinic_adm.register;
+// package com.veterinary_clinic_adm.register;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class RegisterApplicationTests {
+// @SpringBootTest
+// class RegisterApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }

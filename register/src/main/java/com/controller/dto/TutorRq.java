@@ -1,35 +1,19 @@
 package com.veterinary_clinic_adm.register.controller.dto;
 
-import com.veterinary_clinic_adm.register.model.Tutor;
+public class TutorRq {
 
-public class TutorRs {
+    private Long id;
+    private String cpf;
+    private String name;
+    private String age;
+    private String rg;
+    private String email;
+    private String nationality;
+    private String phone;
 
-   private Long id;
-   private String cpf;
-   private String name;
-   private String rg;
-   private String email;
-   private String nationality;
-   private String phone;
+    public Long Id() { return id; }
 
-   public static TutorRs converter(Tutor t) {
-
-       var tutor = new TutorRs();
-
-       tutor.setId(t.getId());
-       tutor.setCpf(t.getCpf());
-       tutor.setName(t.getName());
-       tutor.setRg(t.getRg());
-       tutor.setEmail(t.getEmail());
-       tutor.setNationality(t.getNationality());
-       tutor.setRg(t.getRg());
-
-       return tutor;
-   }
-
-   public Long getId() { return id; }
-
-   public void setId(Long id) { this.id = id; }
+   public void Id(Long id) { this.id = id; }
 
 
    public String getCpf() { return cpf; }
@@ -47,6 +31,11 @@ public class TutorRs {
    public void setRg(String rg) { this.rg = rg; }
 
 
+   public String getAge() { return age; }
+
+   public void setAge(String age) { this.age = age; }
+
+
    public String getEmail() { return email; }
 
    public void setEmail(String email) { this.email = email; }
@@ -60,5 +49,4 @@ public class TutorRs {
    public String getPhone() { return phone; }
 
    public void setPhone(String phone) { this.phone = phone; }
-
 }

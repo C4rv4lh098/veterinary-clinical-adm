@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.*;
 
 @Entity
-@Table(value = "city")
+@Table(name = "city")
 
 public class City{
    @Id
@@ -34,12 +34,13 @@ public class City{
    private String state;
 
    @OneToMany
+   @JoinColumn(name = "tutor_id")
    private Tutor tutor_id;
 
 
-   public String getId() { return id; }
+   public Long getId() { return id; }
    
-   public void setId(String id) { this.id = id; }
+   public void setId(Long id) { this.id = id; }
 
 
    public String getName() { return name; }
@@ -57,9 +58,9 @@ public class City{
    public void setState(String state) { this.state = state; }
 
 
-   public String getTutorId() { return tutor_id; }
+   public Tutor getTutorId() { return tutor_id; }
    
-   public void setTutorId(String tutor_id) { this.tutor_id = tutor_id; }
+   public void setTutorId(Tutor tutor_id) { this.tutor_id = tutor_id; }
    
 
 }

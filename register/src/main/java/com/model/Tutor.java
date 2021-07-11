@@ -9,17 +9,20 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table(value = "tutor")
+@Table(name = "tutor")
 
 public class Tutor{
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-//    @Column(name = "tutor_id")
-//    private int tutor_id;
+   @Column(name = "id")
+   private Long id;
 
    @Column(name = "cpf")
    private String cpf;
@@ -29,6 +32,9 @@ public class Tutor{
 
    @Column(name = "rg")
    private String rg;
+
+   @Column(name = "age")
+   private String age;
 
    @Column(name = "email")
    private String email;
@@ -47,7 +53,7 @@ public class Tutor{
 //    @JoinColumn(name="address_id")
 //    @OneToOne(cascade = CascadeType.ALL)
    @OneToOne
-   private Adress address;
+   private Address address;
 
 //    @JoinColumn(name="animal_id")
 //    @OneToMany(cascade = CascadeType.ALL)
@@ -55,23 +61,24 @@ public class Tutor{
    private List<Animal> animals;
 
 
-//    public int getTutorId() { return tutor_id; }
+   public Long getId() { return id; }
 
-//    public void setTutorId(int tutor_id) { this.tutor_id = tutor_id; }
+   public void setId(Long id) { this.id = id; }
 
-   public String getCity() { return city; }
+
+   public City getCity() { return city; }
    
    public void setCity(City city) { this.city = city; }
 
 
-   public String getAddress() { return address; }
+   public Address getAddress() { return address; }
    
    public void setAddress(Address address) { this.address = address; }
 
 
-   public String getAnimals() { return animals; }
+   public List<Animal> getAnimals() { return animals; }
    
-   public void setAnimals(Animal animals) { this.animals = animals; }
+   public void setAnimals(List<Animal> animals) { this.animals = animals; }
 
 
    public String getCpf() { return cpf; }
@@ -87,6 +94,11 @@ public class Tutor{
    public String getRg() { return rg; }
 
    public void setRg(String rg) { this.rg = rg; }
+
+
+   public String getAge() { return age; }
+
+   public void setAge(String age) { this.age = age; }
 
 
    public String getEmail() { return email; }

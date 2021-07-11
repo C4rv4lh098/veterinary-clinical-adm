@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.*;
 
 @Entity
-@Table(value = "animal")
+@Table(name = "animal")
 
 public class Animal{
    @Id
@@ -44,7 +44,7 @@ public class Animal{
 
 
 
-   public String getId() { return id; }
+   public Long getId() { return id; }
    
    public void setId(Long id) { this.id = id; }
 
@@ -74,9 +74,9 @@ public class Animal{
    public void setSex(String sex) { this.sex = sex; }
 
 
-   public String getTutorId() { return tutor_id; }
+   public Tutor getTutorId() { return tutor_id; }
 
-   public void setTutorId(String tutor_id) { this.tutor_id = tutor_id; }
+   public void setTutorId(Tutor tutor_id) { this.tutor_id = tutor_id; }
 
 }
 

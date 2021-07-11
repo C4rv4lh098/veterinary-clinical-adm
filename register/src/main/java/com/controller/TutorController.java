@@ -25,25 +25,6 @@
 // import java.util.Map;
 // import javax.validation.Valid;
 
-// @RestController
-// @RequestMapping("/tutor")
-// public class TutorController {
-
-//    private final TutorRepository tutorRepository;
-
-//    public TutorController(TutorRepository tutorRepository) {
-//        this.tutorRepository = tutorRepository;
-//    }
-
-//    @GetMapping("/")
-//    public List<TutorRs> findAll(){
-//        var tutor = pessoaRepository.findAll();
-//        return tutor
-//                .stream()
-//                .map(TutorRs::converter)
-//                .collect(Collectors.toList());
-//    }
-// }
 
 package com.veterinary_clinic_adm.register.controller;
 
@@ -57,8 +38,26 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.validation.Valid;
+
 @RestController
-@RequestMapping("/tutor")
+@RequestMapping("/tutor") @CrossOrigin(origins = "http://localhost:4200")
 public class TutorController {
 
     private final TutorRepository tutorRepository;
@@ -117,7 +116,7 @@ public class TutorController {
 
     @GetMapping("/filter")
     public List<TutorRs> findPersonByCpf(@RequestParam("cpf") String cpf) {
-        return this.tutorRepository.findByNomeContains(cpf)
+        return this.tutorRepository.findByCpfContains(cpf)
                 .stream()
                 .map(TutorRs::converter)
                 .collect(Collectors.toList());
@@ -125,8 +124,8 @@ public class TutorController {
 
     @GetMapping("/filter/custom")
     public List<TutorRs> findPersonByCustom(
-            @RequestParam(value = "cpf", required = false) Long cpf,
-            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "cpf", required = false) String cpf,
+            @RequestParam(value = "name", required = false) String name
     ) {
         return this.tutorCustomRepository.find(cpf, name)
                 .stream()

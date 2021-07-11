@@ -12,9 +12,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.*;
 
 @Entity
-@Table(value = "address")
+@Table(name = "address")
 
-public class Adress{
+public class Address{
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -40,9 +40,9 @@ public class Adress{
    private Tutor tutor_id;
 
 
-   public String getId() { return id; }
+   public Long getId() { return id; }
    
-   public void setId(String id) { this.id = id; }
+   public void setId(Long id) { this.id = id; }
 
 
    public String getCep() { return cep; }
@@ -65,9 +65,9 @@ public class Adress{
    public void setNumber(String number) { this.number = number; }
 
 
-   public String getTutorId() { return tutor_id; }
+   public Tutor getTutorId() { return tutor_id; }
    
-   public void setTutorId(String tutor_id) { this.tutor_id = tutor_id; }
+   public void setTutorId(Tutor tutor_id) { this.tutor_id = tutor_id; }
    
 
 }
