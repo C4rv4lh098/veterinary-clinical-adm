@@ -37,57 +37,79 @@ services:
   #   networks:
   #     - scheduling-mysql
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    depends_on:
-      - db
-    ports:
-      - "8888:80"
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=password 
-    links:
-      - db 
+  # phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin:latest
+  #   depends_on:
+  #     - db
+  #   ports:
+  #     - "8888:80"
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=root
+  #     - MYSQL_DATABASE=veterinary 
+  #   links:
+  #     - db 
     # networks:
     #   - scheduling-mysql
   # -----------------------------------
     # labels:
     #   - environment:development
 
+  db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - '3306:3306'
+    environment:
+      # - MYSQL_ROOT_HOST=%
+      - MYSQL_DATABASE=veterinary
+      # - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=password
+      # - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./docker/volume_mysql:/var/lib/mysql
+
+    # environment:
+    #   - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+    #   - PROFILE=dev
+
+  # networks:
+  #   scheduling-mysql:
+  #     driver: bridge
+
   
-  schedulingservice:
-    build:
-      context: ./
-      dockerfile: ./schedulingservice/Dockerfile
-    image: schedulingservice/api
+  # schedulingservice:
+  #   build:
+  #     context: ./
+  #     dockerfile: ./schedulingservice/Dockerfile
+  #   image: schedulingservice/api
 
-    ports:
-      - "8081:8081"
-      - "5056:5006"
-    volumes:
-      - "./schedulingservice:/home/schedulingservice"
-    environment:
-      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
-      - PROFILE=dev
-    links:
-      - db
+  #   ports:
+  #     - "8081:8081"
+  #     - "5056:5006"
+  #   volumes:
+  #     - "./schedulingservice:/home/schedulingservice"
+  #   environment:
+  #     - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+  #     - PROFILE=dev
+  #   links:
+  #     - db
 
-  agendamento:
-    build:
-      context: ./
-      dockerfile: ./agendamento/Dockerfile
-    image: agendamento/api
+  # agendamento:
+  #   build:
+  #     context: ./
+  #     dockerfile: ./agendamento/Dockerfile
+  #   image: agendamento/api
 
-    ports:
-      - "8080:8080"
-      - "5005:5005"
-    volumes:
-      - "./agendamento:/home/agendamento"
-    environment:
-      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
-      - PROFILE=dev
-    links:
-      - db
+  #   ports:
+  #     - "8080:8080"
+  #     - "5005:5005"
+  #   volumes:
+  #     - "./agendamento:/home/agendamento"
+  #   environment:
+  #     - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+  #     - PROFILE=dev
+  #   links:
+  #     - db
     # tty: true
   
   register:
@@ -107,23 +129,4 @@ services:
     links:
       - db
       
-  db:
-    image: mysql:latest
-    ports:
-      - '3306:3306'
-    environment:
-      - MYSQL_ROOT_HOST=%
-      - MYSQL_DATABASE=veterinary
-      # - MYSQL_USER=root
-      - MYSQL_ROOT_PASSWORD=password
-      # - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-    volumes:
-      - ./docker/volume_mysql:/var/lib/mysql
-
-    # environment:
-    #   - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
-    #   - PROFILE=dev
-
-  # networks:
-  #   scheduling-mysql:
-  #     driver: bridge
+ 

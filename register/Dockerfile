@@ -14,6 +14,7 @@ WORKDIR /opt/spring_boot
 COPY /register/target/register-0.0.1-SNAPSHOT*.jar register-0.0.1-SNAPSHOT.jar
 
 SHELL ["/bin/sh", "-c"]
+ENTRYPOINT ["java", "-jar", "register-0.0.1-SNAPSHOT.jar"]
 
 EXPOSE 5007
 EXPOSE 8082

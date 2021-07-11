@@ -93,6 +93,13 @@ public class TutorController {
         t.setEmail(tutor.getEmail());
         t.setNationality(tutor.getNationality());
         t.setPhone(tutor.getPhone());
+        t.setCity(tutor.getCity());
+        t.setCountry(tutor.getCountry());
+        t.setState(tutor.getState());
+        t.setCep(tutor.getCep());
+        t.setStreet(tutor.getStreet());
+        t.setDistrict(tutor.getDistrict());
+        t.setNumber(tutor.getNumber());
         tutorRepository.save(t);
     }
 
@@ -108,6 +115,14 @@ public class TutorController {
             tutorSave.setAge(tutor.getAge());
             tutorSave.setEmail(tutor.getEmail());
             tutorSave.setNationality(tutor.getNationality());
+            tutorSave.setPhone(tutor.getPhone());
+            tutorSave.setCity(tutor.getCity());
+            tutorSave.setCountry(tutor.getCountry());
+            tutorSave.setState(tutor.getState());
+            tutorSave.setCep(tutor.getCep());
+            tutorSave.setStreet(tutor.getStreet());
+            tutorSave.setDistrict(tutor.getDistrict());
+            tutorSave.setNumber(tutor.getNumber());
             tutorRepository.save(tutorSave);
         } else {
             throw new Exception("Pessoa Não encontrada");

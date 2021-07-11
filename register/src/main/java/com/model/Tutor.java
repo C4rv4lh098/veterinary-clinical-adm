@@ -1,5 +1,7 @@
 package com.veterinary_clinic_adm.register.model;
 
+import com.veterinary_clinic_adm.register.model.Animal;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -47,13 +49,34 @@ public class Tutor{
 
 //    @JoinColumn(name="city_id")
 //    @OneToOne(cascade = CascadeType.ALL)
-   @ManyToOne
-   private City city;
+   // @ManyToOne
+   // private City city;
+
+   @Column(name = "city")
+   private String city;
+
+   @Column(name = "country")
+   private String country;
+
+   @Column(name = "state")
+   private String state;
 
 //    @JoinColumn(name="address_id")
 //    @OneToOne(cascade = CascadeType.ALL)
-   @OneToOne
-   private Address address;
+   // @OneToOne
+   // private Address address;
+
+   @Column(name = "cep")
+   private String cep;
+
+   @Column(name = "street")
+   private String street;
+
+   @Column(name = "district")
+   private String district;
+
+   @Column(name = "number")
+   private String number;
 
 //    @JoinColumn(name="animal_id")
 //    @OneToMany(cascade = CascadeType.ALL)
@@ -66,14 +89,14 @@ public class Tutor{
    public void setId(Long id) { this.id = id; }
 
 
-   public City getCity() { return city; }
+   // public City getCity() { return city; }
    
-   public void setCity(City city) { this.city = city; }
+   // public void setCity(City city) { this.city = city; }
 
 
-   public Address getAddress() { return address; }
+   // public Address getAddress() { return address; }
    
-   public void setAddress(Address address) { this.address = address; }
+   // public void setAddress(Address address) { this.address = address; }
 
 
    public List<Animal> getAnimals() { return animals; }
@@ -114,6 +137,40 @@ public class Tutor{
    public String getPhone() { return phone; }
 
    public void setPhone(String phone) { this.phone = phone; }
+
+
+   public String getCity() { return city; }
+   
+   public void setCity(String city) { this.city = city; }
+
+
+   public String getCountry() { return country; }
+   
+   public void setCountry(String country) { this.country = country; }
+
+
+   public String getState() { return state; }
+   
+   public void setState(String state) { this.state = state; }
+
+   public String getCep() { return cep; }
+   
+   public void setCep(String cep) { this.cep = cep; }
+
+
+   public String getStreet() { return street; }
+   
+   public void setStreet(String street) { this.street = street; }
+
+
+   public String getDistrict() { return district; }
+   
+   public void setDistrict(String district) { this.district = district; }
+
+
+   public String getNumber() { return number; }
+   
+   public void setNumber(String number) { this.number = number; }
 
 }
 
