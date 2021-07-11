@@ -33,6 +33,7 @@ CREATE TABLE `address` (
   
   CREATE TABLE `animal` (
   `animal_id` INT NOT NULL,
+  `name`VARCHAR(140) NOT NULL,
   `age` VARCHAR(4) NOT NULL,
   `breed` VARCHAR(40) NOT NULL,
   `species` VARCHAR(40) NOT NULL,
