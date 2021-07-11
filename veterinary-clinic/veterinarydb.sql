@@ -20,11 +20,11 @@ CREATE TABLE `address` (
   `tutor_id` INT NOT NULL,
   `cpf` VARCHAR(11) NOT NULL,
   `name` VARCHAR(140) NOT NULL,
-  `rg` VARCHAR(8) NOT NULL,
+  `rg` VARCHAR(11) NOT NULL,
   `age` VARCHAR(2) NOT NULL,
   `email` VARCHAR(256) NOT NULL,
   `nationality` VARCHAR(20) NOT NULL,
-  `phone` VARCHAR(11),
+  `phone` VARCHAR(15),
   `city_id` INT NOT NULL,
   `address_id` INT NOT NULL,
   PRIMARY KEY (`address_id`),
@@ -33,7 +33,7 @@ CREATE TABLE `address` (
   
   CREATE TABLE `animal` (
   `animal_id` INT NOT NULL,
-  `age` VARCHAR(2) NOT NULL,
+  `age` VARCHAR(4) NOT NULL,
   `breed` VARCHAR(40) NOT NULL,
   `species` VARCHAR(40) NOT NULL,
   `sex` VARCHAR(1) NOT NULL,
