@@ -45,8 +45,8 @@ CREATE TABLE `address` (
   CREATE TABLE `agendamento` (
   `consulta_id` INT NOT NULL,
   `data` DATE NOT NULL,
-  `horain` VARCHAR(5) NOT NULL,
-  `horaout` VARCHAR(5) NOT NULL,
+  `horain` TIME NOT NULL,
+  `horaout` TIME NOT NULL,
   `animal_id` INT NOT NULL,
   `tutor_id` INT NOT NULL,
   PRIMARY KEY (`consulta_id`),
