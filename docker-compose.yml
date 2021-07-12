@@ -77,22 +77,22 @@ services:
   #     driver: bridge
 
   
-  # schedulingservice:
-  #   build:
-  #     context: ./
-  #     dockerfile: ./schedulingservice/Dockerfile
-  #   image: schedulingservice/api
+  schedulingservice:
+    build:
+      context: ./
+      dockerfile: ./schedulingservice/Dockerfile
+    image: schedulingservice/api
 
-  #   ports:
-  #     - "8081:8081"
-  #     - "5056:5006"
-  #   volumes:
-  #     - "./schedulingservice:/home/schedulingservice"
-  #   environment:
-  #     - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
-  #     - PROFILE=dev
-  #   links:
-  #     - db
+    ports:
+      - "8081:8081"
+      - "5056:5006"
+    volumes:
+      - "./schedulingservice:/home/schedulingservice"
+    environment:
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - PROFILE=dev
+    links:
+      - db
 
   # agendamento:
   #   build:
@@ -112,7 +112,7 @@ services:
   #     - db
     # tty: true
   
-  register:
+  registerservice:
     build:
       context: ./
       dockerfile: ./register/Dockerfile
