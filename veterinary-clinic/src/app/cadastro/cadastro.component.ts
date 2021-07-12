@@ -6,11 +6,11 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/distinctUntilChanged';
 import { BreakpointObserver } from "@angular/cdk/layout";
-import { cadastroInterface } from '../../interfaces/ccaf/ccaf-issued-interface';
+import { cadastroInterface } from '../../interfaces/cadastro-interface';
 import { AlertService } from 'src/app/shared/alert/alert.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { StateService } from '../../services/state.service';
-import { CadastroService} from '../../services/ccaf/ccaf-issued.service';
+import { CadastroService} from '../../services/cadastro.service';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -55,7 +55,7 @@ export class CadastroComponent implements OnInit {
 
   cadastro$: Observable<cadastroInterface>;
 
-  textoClass: string;
+  textoClass: any;
   isMobile = false;
 
   routerLink = '../../../';
