@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.CrudRepository;
 
 @Repository
-public interface AgendaRepository extends CrudRepository<Agenda,Long>{
+public interface AgendaRepository extends JpaRepository<Agenda,Long>{
 
 }

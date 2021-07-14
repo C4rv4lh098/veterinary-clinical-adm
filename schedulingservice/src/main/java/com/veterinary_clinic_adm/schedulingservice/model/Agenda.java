@@ -33,7 +33,7 @@ public class Agenda {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getConsulta_id() {
         return consulta_id;
     }
@@ -87,15 +87,16 @@ public class Agenda {
         this.horaout = horaout;
     }
 
-   /* @Override
+    @Override
     public String toString() {
         return "Agenda{" +
-                "id=" + id +
+                "id=" + consulta_id +
                 ", tutor_id=" + tutor_id +
                 ", animal_id=" + animal_id +
                 ", date=" + date +
                 ", horain='" + horain + '\'' +
                 ", horaout='" + horaout + '\'' +
                 '}';
-    }*/
+    }
+
 }

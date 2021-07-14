@@ -1,18 +1,13 @@
 package com.veterinary_clinic_adm.schedulingservice.controller;
 
+import com.veterinary_clinic_adm.schedulingservice.controller.dto.AgendaRq;
 import com.veterinary_clinic_adm.schedulingservice.model.Agenda;
 import com.veterinary_clinic_adm.schedulingservice.expection.ResourceNotFoundException;
 import com.veterinary_clinic_adm.schedulingservice.repository.AgendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.HashMap;
 import java.util.Map;
 import javax.validation.Valid;
@@ -42,7 +37,18 @@ public class AgendaController {
         return ResponseEntity.ok().body(agenda);
     }
 
-    @PostMapping("consultas")
+    @PostMapping("/consultas")
+    public void saveAgenda(@RequestBody AgendaRq agenda){
+        Agenda a = new Agenda();
+        a.setTutor_id(agenda.getTutor_id());
+        a.setAnimal_id(agenda.getAnimal_id());
+        a.setDate(agenda.getDate());
+        a.setHorain(agenda.getHorain());
+        a.setHoraout(agenda.getHoraout());
+        agendaRepository.save(a);
+    }
+
+    /*@PostMapping("/consultas")
     public Agenda createAgenda(@Valid @RequestBody Agenda agenda){
         Agenda n = new Agenda();
         n.setTutor_id(tutor_id);
@@ -52,7 +58,7 @@ public class AgendaController {
         n.setHoraout(horaout);
 
         return agendaRepository.save(agenda);
-    }
+    }*/
 
     @PutMapping("/consultas/{id}")
     public ResponseEntity<Agenda> updateAgenda(@PathVariable (value = "id") Long agendaId,
@@ -68,6 +74,7 @@ public class AgendaController {
         return ResponseEntity.ok(updateAgenda);
     }
 
+    @DeleteMapping("/consulta/{id}")
     public Map<String, Boolean> deleteAgenda(@PathVariable(value = "id") Long agendaId)
         throws ResourceNotFoundException{
         Agenda agenda = agendaRepository.findById(agendaId)
