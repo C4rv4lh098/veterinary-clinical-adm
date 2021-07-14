@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="schedulingservice/Hibernate" uuid="f3372b61-b054-4681-8041-f80e41ae70ea">
+    <data-source source="LOCAL" name="dbclinic@localhost" uuid="924d13e6-d13f-4fce-8a8e-d45527e44c2b">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>Hibernate</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://db:3306/schedulingservice</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/dbclinic</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

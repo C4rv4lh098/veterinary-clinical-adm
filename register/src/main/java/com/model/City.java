@@ -25,7 +25,7 @@ package com.model;
     @Column(name = "state")
     private String state;
 
-    @OneToMany
+
 //    @JoinColumn(name = "tutor_id")
 //    private Tutor tutor_id;
 

@@ -1,6 +1,7 @@
 //package com.veterinary_clinic_adm.register.model;
 package com.model;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -34,7 +35,7 @@ public class Tutor{
    @Column(name = "phone")
    private String phone;
 
-    @JoinColumn(name="city")
+    @JoinTable(name="city")
 //    @OneToOne(cascade = CascadeType.ALL)
     @ManyToOne
     private City city_id;
@@ -48,7 +49,7 @@ public class Tutor{
 //   @Column(name = "state")
 //   private String state;
 
-    @JoinColumn(name="address")
+    @JoinTable(name="address")
 //    @OneToOne(cascade = CascadeType.ALL)
     @OneToOne
     private Address address_id;
@@ -77,7 +78,7 @@ public class Tutor{
 
 
     public City getCity_id() { return city_id; }
-   
+
     public void setCity_id(City city_id) { this.city_id = city_id; }
 
 

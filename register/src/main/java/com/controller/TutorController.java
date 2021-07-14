@@ -5,9 +5,7 @@
 // import org.springframework.web.bind.annotation.RequestMapping;
 // import org.springframework.web.bind.annotation.RestController;
 
-// import com.veterinary_clinic_adm.schedulingservice.model.Agenda;
-// import com.veterinary_clinic_adm.schedulingservice.expection.ResourceNotFoundException;
-// import com.veterinary_clinic_adm.schedulingservice.repository.AgendaRepository;
+
 // import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.boot.autoconfigure.web.ServerProperties;
 // import org.springframework.http.ResponseEntity;
@@ -26,11 +24,22 @@
 // import javax.validation.Valid;
 
 
-//package com.veterinary_clinic_adm.register.controller;
 package com.controller;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+//package com.veterinary_clinic_adm.register.controller;
 //import com.veterinary_clinic_adm.register.controller.dto.TutorRq;
 //import com.veterinary_clinic_adm.register.controller.dto.TutorRs;
+
 import com.controller.dto.TutorRq;
 import com.controller.dto.TutorRs;
 import com.model.Tutor;
@@ -83,8 +92,9 @@ public class TutorController {
         t.setNationality(tutor.getNationality());
         t.setPhone(tutor.getPhone());
 
-        t.setCity_id(tutor.getCity_id());
-        t.setAddress_id(tutor.getAddress_id());
+//        t.setCity_id(tutor.getCity_id());
+//        t.setAddress_id(tutor.getAddress_id());
+
 //        t.setCity(tutor.getCity());
 //        t.setCountry(tutor.getCountry());
 //        t.setState(tutor.getState());
@@ -110,8 +120,9 @@ public class TutorController {
             tutorSave.setNationality(tutor.getNationality());
             tutorSave.setPhone(tutor.getPhone());
 
-            tutorSave.setCity_id(tutor.getCity_id());
-            tutorSave.setAddress_id(tutor.getAddress_id());
+//            tutorSave.setCity_id(tutor.getCity_id());
+//            tutorSave.setAddress_id(tutor.getAddress_id());
+
 //            tutorSave.setCity(tutor.getCity());
 //            tutorSave.setCountry(tutor.getCountry());
 //            tutorSave.setState(tutor.getState());

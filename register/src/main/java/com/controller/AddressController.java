@@ -13,6 +13,14 @@ import com.model.Address;
 import com.repository.AddressRepository;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,6 +50,7 @@ import java.util.stream.Collectors;
 
      @GetMapping("/{id}")
      public AddressRs findById(@PathVariable("id") Long id) {
+         //noinspection deprecation
          var address = addressRepository.getOne(id);
          return AddressRs.converter(address);
      }

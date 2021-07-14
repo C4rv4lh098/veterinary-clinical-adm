@@ -6,29 +6,33 @@ import com.model.Address;
 
  public class AddressRs {
 
-    private Long address_Id;
+    private Long address_id;
     private String cep;
     private String district;
     private String street;
     private String number;
+
+     public AddressRs() {
+     }
 //    private Tutor tutor_id;
 
     public static AddressRs converter(Address t) {
 
         var address = new AddressRs();
 
-        address.setAddress_Id(t.getAddress_id());
+        address.setAddress_id(t.getAddress_id());
 //        address.setTutorId(t.getTutorId());
         address.setCep(t.getCep());
+        address.setDistrict(t.getDistrict());
         address.setStreet(t.getStreet());
         address.setNumber(t.getNumber());
 
         return address;
     }
 
-    public Long getAddress_Id() { return address_Id; }
+    public Long getAddress_id() { return address_id; }
 
-    public void setAddress_Id(Long address_Id) { this.address_Id = address_Id; }
+    public void setAddress_id(Long address_id) { this.address_id = address_id; }
 
 
     public String getCep() { return cep; }
