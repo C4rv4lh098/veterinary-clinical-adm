@@ -6,96 +6,96 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 
 @Entity
-@Table(name = "consulta")
+@Table(name = "agendamento")
 public class Agenda {
-    private long id;
-    private String tutorName;
-    private String animalName;
-    private String datee;
-    private String startHour;
-    private String endHour;
+    private long consulta_id;
+    private int tutor_id;
+    private int animal_id;
+    private Date date;
+    private String horain;
+    private String horaout;
 
-    public Agenda(){
+    public Agenda() {
 
     }
 
-    public Agenda(long id, String tutorName, String animalName, String datee, String startHour, String endHour) {
-        this.id = id;
-
-        this.tutorName = tutorName;
-        this.animalName = animalName;
-        this.datee = datee;
-        this.startHour = startHour;
-        this.endHour = endHour;
+    public Agenda(long consulta_id, int tutor_id, int animal_id, Date date, String horain, String horaout) {
+        this.consulta_id = consulta_id;
+        this.tutor_id = tutor_id;
+        this.animal_id = animal_id;
+        this.date = date;
+        this.horain = horain;
+        this.horaout = horaout;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public long getId() {
-        return id;
+    public long getConsulta_id() {
+        return consulta_id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setConsulta_id(long consulta_id) {
+        this.consulta_id = consulta_id;
     }
 
-    @Column(name = "tutorName", nullable = false)
-    public String getTutorName() {
-        return tutorName;
+    @Column(name = "tutor_id", nullable = false)
+    public int getTutor_id() {
+        return tutor_id;
     }
 
-    public void setTutorName(String tutorName) {
-        this.tutorName = tutorName;
+    public void setTutor_id(int tutor_id) {
+        this.tutor_id = tutor_id;
     }
 
-    @Column(name = "animalName", nullable = false)
-    public String getAnimalName() {
-        return animalName;
+    @Column(name = "animal_id", nullable = false)
+    public int getAnimal_id() {
+        return animal_id;
     }
 
-    public void setAnimalName(String animalName) {
-        this.animalName = animalName;
+    public void setAnimal_id(int animal_id) {
+        this.animal_id = animal_id;
     }
 
-    @Column(name = "datee", nullable = false)
-    public String getDatee() {
-        return datee;
+    @Column(name = "data", nullable = false)
+    public Date getDate() {
+        return date;
     }
 
-    public void setDatee(String datee) {
-        this.datee = datee;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    @Column(name = "startHour", nullable = false)
-    public String getStartHour() {
-        return startHour;
+    @Column(name = "horain", nullable = false)
+    public String getHorain() {
+        return horain;
     }
 
-    public void setStartHour(String startHour) {
-        this.startHour = startHour;
+    public void setHorain(String horain) {
+        this.horain = horain;
     }
 
-    @Column(name = "endHour", nullable = false)
-    public String getEndHour() {
-        return endHour;
+    @Column(name = "horaout", nullable = false)
+    public String getHoraout() {
+        return horaout;
     }
 
-    public void setEndHour(String endHour) {
-        this.endHour = endHour;
+    public void setHoraout(String horaout) {
+        this.horaout = horaout;
     }
 
-    @Override
+   /* @Override
     public String toString() {
         return "Agenda{" +
                 "id=" + id +
-                ", tutorName='" + tutorName + '\'' +
-                ", animalName='" + animalName + '\'' +
-                ", datee='" + datee + '\'' +
-                ", startHour='" + startHour + '\'' +
-                ", endHour='" + endHour + '\'' +
+                ", tutor_id=" + tutor_id +
+                ", animal_id=" + animal_id +
+                ", date=" + date +
+                ", horain='" + horain + '\'' +
+                ", horaout='" + horaout + '\'' +
                 '}';
-    }
+    }*/
 }

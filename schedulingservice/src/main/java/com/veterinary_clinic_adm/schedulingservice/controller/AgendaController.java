@@ -4,10 +4,8 @@ import com.veterinary_clinic_adm.schedulingservice.model.Agenda;
 import com.veterinary_clinic_adm.schedulingservice.expection.ResourceNotFoundException;
 import com.veterinary_clinic_adm.schedulingservice.repository.AgendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.validation.Valid;
 
@@ -27,8 +24,13 @@ public class AgendaController {
     @Autowired
     private AgendaRepository agendaRepository;
 
+    /*@GetMapping("/consultas")
+    public Iterable<Agenda> getAllAgendas(){
+        return agendaRepository.findAll();
+    }*/
+
     @GetMapping("/consultas")
-    public List<Agenda> getAllAgendas(){
+    private Iterable<Agenda> getAllAgendas(){
         return agendaRepository.findAll();
     }
 
@@ -42,6 +44,13 @@ public class AgendaController {
 
     @PostMapping("consultas")
     public Agenda createAgenda(@Valid @RequestBody Agenda agenda){
+        Agenda n = new Agenda();
+        n.setTutor_id(tutor_id);
+        n.setAnimal_id(animal_id);
+        n.setDate(date);
+        n.setHorain(horain);
+        n.setHoraout(horaout);
+
         return agendaRepository.save(agenda);
     }
 
@@ -50,11 +59,11 @@ public class AgendaController {
                                                @Valid @RequestBody Agenda agendaDetails) throws ResourceNotFoundException{
         Agenda agenda = agendaRepository.findById(agendaId)
                 .orElseThrow(()-> new ResourceNotFoundException("Consulta não encontrada com esse Id::" + agendaId));
-        agenda.setTutorName(agendaDetails.getTutorName());
-        agenda.setAnimalName(agendaDetails.getAnimalName());
-        agenda.setDatee(agendaDetails.getDatee());
-        agenda.setStartHour(agendaDetails.getStartHour());
-        agenda.setEndHour(agendaDetails.getEndHour());
+        agenda.setTutor_id(agendaDetails.getTutor_id());
+        agenda.setAnimal_id(agendaDetails.getAnimal_id());
+        agenda.setDate(agendaDetails.getDate());
+        agenda.setHorain(agendaDetails.getHorain());
+        agenda.setHoraout(agendaDetails.getHoraout());
         final Agenda updateAgenda = agendaRepository.save(agenda);
         return ResponseEntity.ok(updateAgenda);
     }
