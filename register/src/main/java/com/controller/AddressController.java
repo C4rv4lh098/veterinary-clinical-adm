@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 
  @RestController
- @RequestMapping("/address")
+ @RequestMapping("/api/address")
  public class AddressController {
 
      private final AddressRepository addressRepository;

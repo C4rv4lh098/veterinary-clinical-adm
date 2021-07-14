@@ -37,7 +37,7 @@ import java.util.Map;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/animal")
+@RequestMapping("/api/animal")
 public class AnimalController {
 
     private final AnimalRepository animalRepository;

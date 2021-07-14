@@ -46,7 +46,7 @@ import java.util.stream.Collectors;
 //import com.veterinary_clinic_adm.register.repository.TutorRepository;
 
 @RestController
-@RequestMapping("/tutor") @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/tutor") @CrossOrigin(origins = "http://localhost:4200")
 public class TutorController {
 
     private final TutorRepository tutorRepository;
@@ -72,7 +72,7 @@ public class TutorController {
         return TutorRs.converter(tutor);
     }
 
-    @PostMapping("/")
+    @PostMapping("/tutor")
     public void savePerson(@RequestBody TutorRq tutor) {
         var t = new Tutor();
         t.setName(tutor.getName());

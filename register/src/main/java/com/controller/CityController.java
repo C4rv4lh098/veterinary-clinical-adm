@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 // import com.veterinary_clinic_adm.register.repository.CityCustomRepository;
 
  @RestController
- @RequestMapping("/city")
+ @RequestMapping("/api/city")
  public class CityController {
 
      private final CityRepository cityRepository;

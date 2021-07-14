@@ -14,7 +14,7 @@ public class Agenda {
     private long id;
     private String tutorName;
     private String animalName;
-    private String datee;
+    private String date;
     private String startHour;
     private String endHour;
 
@@ -22,12 +22,12 @@ public class Agenda {
 
     }
 
-    public Agenda(long id, String tutorName, String animalName, String datee, String startHour, String endHour) {
+    public Agenda(long id, String tutorName, String animalName, String date, String startHour, String endHour) {
         this.id = id;
 
         this.tutorName = tutorName;
         this.animalName = animalName;
-        this.datee = datee;
+        this.date = date;
         this.startHour = startHour;
         this.endHour = endHour;
     }
@@ -60,13 +60,13 @@ public class Agenda {
         this.animalName = animalName;
     }
 
-    @Column(name = "datee", nullable = false)
-    public String getDatee() {
-        return datee;
+    @Column(name = "date", nullable = false)
+    public String getDate() {
+        return date;
     }
 
-    public void setDatee(String datee) {
-        this.datee = datee;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     @Column(name = "startHour", nullable = false)
@@ -93,7 +93,7 @@ public class Agenda {
                 "id=" + id +
                 ", tutorName='" + tutorName + '\'' +
                 ", animalName='" + animalName + '\'' +
-                ", datee='" + datee + '\'' +
+                ", date='" + date + '\'' +
                 ", startHour='" + startHour + '\'' +
                 ", endHour='" + endHour + '\'' +
                 '}';

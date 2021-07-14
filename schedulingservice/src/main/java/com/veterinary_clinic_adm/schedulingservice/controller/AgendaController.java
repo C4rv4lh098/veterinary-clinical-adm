@@ -52,7 +52,7 @@ public class AgendaController {
                 .orElseThrow(()-> new ResourceNotFoundException("Consulta não encontrada com esse Id::" + agendaId));
         agenda.setTutorName(agendaDetails.getTutorName());
         agenda.setAnimalName(agendaDetails.getAnimalName());
-        agenda.setDatee(agendaDetails.getDatee());
+        agenda.setDate(agendaDetails.getDate());
         agenda.setStartHour(agendaDetails.getStartHour());
         agenda.setEndHour(agendaDetails.getEndHour());
         final Agenda updateAgenda = agendaRepository.save(agenda);
