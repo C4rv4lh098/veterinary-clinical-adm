@@ -37,36 +37,39 @@ services:
   #   networks:
   #     - scheduling-mysql
 
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin:latest
-  #   depends_on:
-  #     - db
-  #   ports:
-  #     - "8888:80"
-  #   environment:
-  #     - MYSQL_ROOT_PASSWORD=root
-  #     - MYSQL_DATABASE=veterinary 
-  #   links:
-  #     - db 
-    # networks:
-    #   - scheduling-mysql
-  # -----------------------------------
-    # labels:
-    #   - environment:development
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    depends_on:
+      - db
+    ports:
+      - "8888:80"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=dbclinic 
+    links:
+      - db 
+  #   networks:
+  #     - scheduling-mysql
+  # # -----------------------------------
+  #   labels:
+  #     - environment:development
 
   db:
     image: mysql:latest
     command: --default-authentication-plugin=mysql_native_password
+    command: --init-file /init.sql
     ports:
       - '3306:3306'
     environment:
       # - MYSQL_ROOT_HOST=%
-      - MYSQL_DATABASE=veterinary
+      - MYSQL_DATABASE=dbclinic
       # - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=password
       # - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - ./docker/volume_mysql:/var/lib/mysql
+      - ./init.sql:/init.sql
+
 
     # environment:
     #   - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
@@ -77,22 +80,22 @@ services:
   #     driver: bridge
 
   
-  schedulingservice:
-    build:
-      context: ./
-      dockerfile: ./schedulingservice/Dockerfile
-    image: schedulingservice/api
+  # schedulingservice:
+  #   build:
+  #     context: ./
+  #     dockerfile: ./schedulingservice/Dockerfile
+  #   image: schedulingservice/api
 
-    ports:
-      - "8081:8081"
-      - "5056:5006"
-    volumes:
-      - "./schedulingservice:/home/schedulingservice"
-    environment:
-      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
-      - PROFILE=dev
-    links:
-      - db
+  #   ports:
+  #     - "8081:8081"
+  #     - "5056:5006"
+  #   volumes:
+  #     - "./schedulingservice:/home/schedulingservice"
+  #   environment:
+  #     - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+  #     - PROFILE=dev
+  #   links:
+  #     - db
 
   # agendamento:
   #   build:
@@ -112,21 +115,21 @@ services:
   #     - db
     # tty: true
   
-  registerservice:
-    build:
-      context: ./
-      dockerfile: ./register/Dockerfile
-    image: register/api
+  # registerservice:
+  #   build:
+  #     context: ./
+  #     dockerfile: ./register/Dockerfile
+  #   image: register/api
 
-    ports:
-      - "8082:8082"
-      - "5007:5007"
-    volumes:
-      - "./register:/home/register"
-    environment:
-      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
-      - PROFILE=dev
-    links:
-      - db
+  #   ports:
+  #     - "8082:8082"
+  #     - "5007:5007"
+  #   volumes:
+  #     - "./register:/home/register"
+  #   environment:
+  #     - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+  #     - PROFILE=dev
+  #   links:
+  #     - db
       
  
