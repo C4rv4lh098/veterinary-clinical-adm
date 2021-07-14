@@ -27,7 +27,7 @@ CREATE TABLE `address` (
   `phone` VARCHAR(15),
   `city_id` INT NOT NULL,
   `address_id` INT NOT NULL,
-  PRIMARY KEY (`address_id`),
+  PRIMARY KEY (`tutor_id`),
   FOREIGN KEY (city_id) references city(city_id),
   FOREIGN KEY (address_id) references address(address_id));
   
@@ -50,5 +50,5 @@ CREATE TABLE `address` (
   `animal_id` INT NOT NULL,
   `tutor_id` INT NOT NULL,
   PRIMARY KEY (`consulta_id`),
-  FOREIGN KEY (animal_id) references animal(anima_id),
+  FOREIGN KEY (animal_id) references animal(animal_id),
   FOREIGN KEY (tutor_id) references tutor(tutor_id));
