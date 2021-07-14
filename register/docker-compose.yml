@@ -1,0 +1,29 @@
+db:
+  image: mysql:latest
+  command: --default-authentication-plugin=mysql_native_password
+  ports:
+    - '3306:3306'
+  environment:
+    # - MYSQL_ROOT_HOST=%
+    - MYSQL_DATABASE=dbclinic
+    # - MYSQL_USER=root
+    - MYSQL_ROOT_PASSWORD=password
+    # - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+  volumes:
+    - ./docker/volume_mysql:/var/lib/mysql
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin:latest
+#  depends_on:
+#    - db
+  ports:
+    - "8888:80"
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=dbclinic
+  links:
+    - db
+#  networks:
+#    - scheduling-mysql
+#  -----------------------------------
+#  labels:
+#    - environment:development

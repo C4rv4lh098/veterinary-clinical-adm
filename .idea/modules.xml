@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/register/register.iml" filepath="$PROJECT_DIR$/register/register.iml" />
+      <module fileurl="file://$PROJECT_DIR$/schedulingservice/schedulingservice.iml" filepath="$PROJECT_DIR$/schedulingservice/schedulingservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/veterinary-clinical-adm.iml" filepath="$PROJECT_DIR$/.idea/veterinary-clinical-adm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/schedulingservice/.mvn/wrapper/wrapper.iml" filepath="$PROJECT_DIR$/schedulingservice/.mvn/wrapper/wrapper.iml" />
     </modules>
   </component>
 </project>
