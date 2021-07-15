@@ -1,0 +1,18 @@
+label.campo{
+  font-size: large;
+  font-family:sans-serif;
+  color: #0d6efd;
+}
+label.info{
+  font-size: large;
+  font-family:sans-serif;
+  color:rgb(0, 0, 78);
+}
+
+::placeholder{
+  font-family: sans-serif;
+}
+
+/* input[type="date"], input[type="time"]{
+  color: #0d6efd
+} */
