@@ -12,7 +12,7 @@ public class AnimalRq {
     private String breed;
     private String species;
     private String sex;
-    private Tutor tutor_id;
+//    private Tutor tutor_id;
 
     public Long getId() { return animal_id; }
 
@@ -44,8 +44,8 @@ public class AnimalRq {
     public void setSex(String sex) { this.sex = sex; }
  
  
-    public Tutor getTutorId() { return tutor_id; }
- 
-    public void setTutorId(Tutor tutor_id) { this.tutor_id = tutor_id; }
+//    public Tutor getTutorId() { return tutor_id; }
+//
+//    public void setTutorId(Tutor tutor_id) { this.tutor_id = tutor_id; }
    
 }

@@ -2,8 +2,8 @@
 //import com.veterinary_clinic_adm.register.model.Animal;
 
 package com.controller.dto;
-import com.model.Address;
-import com.model.City;
+//import com.model.Address;
+
 
 public class TutorRq {
 
@@ -16,31 +16,27 @@ public class TutorRq {
    private String nationality;
    private String phone;
 
-//   private String country;
-//   private String state;
-//   private String city;
-//
-//   private String cep;
-//   private String district;
-//   private String street;
-//   private String number;
+   private String county;
+   private String state;
 
-//   private List<Animal> animals;
-   private City city_id;
-   private Address address_id;
+
+   private String cep;
+   private String district;
+   private String street;
+   private String number;
+
+
 
 
 //   public List<Animal> getAnimals() { return animals; }
 //
 //   public void setAnimals(List<Animal> animals) { this.animals = animals; }
 
-   public City getCity_id() { return city_id; }
 
-   public void setCity_id(City city_id) { this.city_id = city_id; }
-
-   public Address getAddress_id() { return address_id; }
-
-   public void setAddress_id(Address address_id) { this.address_id = address_id; }
+//
+//   public Address getAddress_id() { return address_id; }
+//
+//   public void setAddress_id(Address address_id) { this.address_id = address_id; }
 
 
    public Long getTutor_id() { return tutor_id; }
@@ -83,38 +79,34 @@ public class TutorRq {
    public void setPhone(String phone) { this.phone = phone; }
 
 
-//   public String getCountry() { return country; }
-//
-//   public void setCountry(String country) { this.country = country; }
-//
-//
-//   public String getCity() { return city; }
-//
-//   public void setCity(String city) { this.city = city; }
-//
-//
-//   public String getState() { return state; }
-//
-//   public void setState(String state) { this.state = state; }
-//
-//
-//   public String getCep() { return cep; }
-//
-//   public void setCep(String cep) { this.cep = cep; }
-//
-//
-//   public String getStreet() { return street; }
-//
-//   public void setStreet(String street) { this.street = street; }
-//
-//
-//   public String getNumber() { return number; }
-//
-//   public void setNumber(String number) { this.number = number; }
-//
-//
-//   public String getDistrict() { return district; }
-//
-//   public void setDistrict(String district) { this.district = district; }
+   public String getCounty() { return county; }
+
+   public void setCounty(String county) { this.county = county; }
+
+
+
+   public String getState() { return state; }
+
+   public void setState(String state) { this.state = state; }
+
+
+   public String getCep() { return cep; }
+
+   public void setCep(String cep) { this.cep = cep; }
+
+
+   public String getStreet() { return street; }
+
+   public void setStreet(String street) { this.street = street; }
+
+
+   public String getNumber() { return number; }
+
+   public void setNumber(String number) { this.number = number; }
+
+
+   public String getDistrict() { return district; }
+
+   public void setDistrict(String district) { this.district = district; }
    
 }

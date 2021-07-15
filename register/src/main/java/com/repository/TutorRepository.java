@@ -11,5 +11,5 @@ import java.util.List;
 
 @Repository
 public interface TutorRepository extends JpaRepository<Tutor, Long> {
-    List<Tutor> findByCpfContains(String cpf);
+//    List<Tutor> findByCpfContains(String cpf);
 }

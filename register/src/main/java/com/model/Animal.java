@@ -32,6 +32,7 @@ public class Animal{
    private String sex;
 
    @OneToOne
+   @JoinColumn(name = "tutor_id")
    private Tutor tutor_id;
 
 

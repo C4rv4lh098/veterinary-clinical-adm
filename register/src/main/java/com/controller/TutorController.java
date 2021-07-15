@@ -25,9 +25,10 @@
 
 
 package com.controller;
+import com.repository.TutorRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,12 +45,10 @@ import com.controller.dto.TutorRq;
 import com.controller.dto.TutorRs;
 import com.model.Tutor;
 import com.repository.TutorCustomRepository;
-import com.repository.TutorRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 //import com.veterinary_clinic_adm.register.model.Tutor;
 //import com.veterinary_clinic_adm.register.repository.TutorCustomRepository;
 //import com.veterinary_clinic_adm.register.repository.TutorRepository;
@@ -82,8 +81,9 @@ public class TutorController {
     }
 
     @PostMapping("/tutor")
-    public void savePerson(@RequestBody TutorRq tutor) {
+    public ResponseEntity<String> savePerson(@RequestBody TutorRq tutor) {
         var t = new Tutor();
+
         t.setName(tutor.getName());
         t.setCpf(tutor.getCpf());
         t.setRg(tutor.getRg());
@@ -92,18 +92,19 @@ public class TutorController {
         t.setNationality(tutor.getNationality());
         t.setPhone(tutor.getPhone());
 
-//        t.setCity_id(tutor.getCity_id());
-//        t.setAddress_id(tutor.getAddress_id());
 
-//        t.setCity(tutor.getCity());
-//        t.setCountry(tutor.getCountry());
-//        t.setState(tutor.getState());
-//        t.setCep(tutor.getCep());
-//        t.setStreet(tutor.getStreet());
-//        t.setDistrict(tutor.getDistrict());
-//        t.setNumber(tutor.getNumber());
+        t.setCounty(tutor.getCounty());
+        t.setState(tutor.getState());
+        t.setCep(tutor.getCep());
+        t.setStreet(tutor.getStreet());
+        t.setDistrict(tutor.getDistrict());
+        t.setNumber(tutor.getNumber());
+
 
         tutorRepository.save(t);
+        return ResponseEntity.ok("Sucesso!");
+//        return Exception();
+
     }
 
     @PutMapping("/{id}")
@@ -120,29 +121,27 @@ public class TutorController {
             tutorSave.setNationality(tutor.getNationality());
             tutorSave.setPhone(tutor.getPhone());
 
-//            tutorSave.setCity_id(tutor.getCity_id());
-//            tutorSave.setAddress_id(tutor.getAddress_id());
 
-//            tutorSave.setCity(tutor.getCity());
-//            tutorSave.setCountry(tutor.getCountry());
-//            tutorSave.setState(tutor.getState());
-//            tutorSave.setCep(tutor.getCep());
-//            tutorSave.setStreet(tutor.getStreet());
-//            tutorSave.setDistrict(tutor.getDistrict());
-//            tutorSave.setNumber(tutor.getNumber());
+
+            tutorSave.setCounty(tutor.getCounty());
+            tutorSave.setState(tutor.getState());
+            tutorSave.setCep(tutor.getCep());
+            tutorSave.setStreet(tutor.getStreet());
+            tutorSave.setDistrict(tutor.getDistrict());
+            tutorSave.setNumber(tutor.getNumber());
             tutorRepository.save(tutorSave);
         } else {
             throw new Exception("Pessoa Não encontrada");
         }
     }
 
-    @GetMapping("/filter")
-    public List<TutorRs> findPersonByCpf(@RequestParam("cpf") String cpf) {
-        return this.tutorRepository.findByCpfContains(cpf)
-                .stream()
-                .map(TutorRs::converter)
-                .collect(Collectors.toList());
-    }
+//    @GetMapping("/filter")
+//    public List<TutorRs> findPersonByCpf(@RequestParam("cpf") String cpf) {
+//        return this.tutorRepository.findByCpfContains(cpf)
+//                .stream()
+//                .map(TutorRs::converter)
+//                .collect(Collectors.toList());
+//    }
 
     @GetMapping("/filter/custom")
     public List<TutorRs> findPersonByCustom(

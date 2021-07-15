@@ -72,7 +72,7 @@ public class AnimalController {
         a.setBreed(animal.getBreed());
         a.setSpecies(animal.getSpecies());
         a.setSex(animal.getSex());
-        a.setTutorId(animal.getTutorId());
+//        a.setTutorId(animal.getTutorId());
         animalRepository.save(a);
     }
 
@@ -87,7 +87,7 @@ public class AnimalController {
             animalSave.setBreed(animal.getBreed());
             animalSave.setSpecies(animal.getSpecies());
             animalSave.setSex(animal.getSex());
-            animalSave.setTutorId(animal.getTutorId());
+//            animalSave.setTutorId(animal.getTutorId());
             animalRepository.save(animalSave);
         } else {
             throw new Exception("Animal Não encontrado");
