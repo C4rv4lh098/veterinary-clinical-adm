@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import javax.validation.Valid;
 
 @RestController @CrossOrigin(origins = "http://localhost:4200")
@@ -74,6 +75,15 @@ public class AgendaController {
         return ResponseEntity.ok(updateAgenda);
     }
 
+    @DeleteMapping(path ={"/consulta/{id}"})
+    public ResponseEntity <?> deleteAgenda(@PathVariable long id) {
+        return agendaRepository.findById(id)
+                .map(record -> {
+                    agendaRepository.deleteById(id);
+                    return ResponseEntity.ok().build();
+                }).orElse(ResponseEntity.notFound().build());
+    }
+/*
     @DeleteMapping("/consulta/{id}")
     public Map<String, Boolean> deleteAgenda(@PathVariable(value = "id") Long agendaId)
         throws ResourceNotFoundException{
@@ -83,5 +93,5 @@ public class AgendaController {
         Map<String, Boolean> response = new HashMap< >();
         response.put("deleted", Boolean.TRUE);
         return response;
-    }
+    }*/
 }

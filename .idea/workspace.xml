@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1206404a-2f75-4b46-a278-f60b6f317370" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schedulingservice/src/main/java/com/veterinary_clinic_adm/schedulingservice/SchedulingserviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/schedulingservice/src/main/java/com/veterinary_clinic_adm/schedulingservice/SchedulingserviceApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,19 +62,6 @@
     </option>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="E2E Tests (frontend-angular)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/frontend-angular/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -137,6 +123,7 @@
       <updated>1626131358867</updated>
       <workItem from="1626131386709" duration="1014000" />
       <workItem from="1626132624423" duration="4037000" />
+      <workItem from="1626186927354" duration="308000" />
     </task>
     <servers />
   </component>
