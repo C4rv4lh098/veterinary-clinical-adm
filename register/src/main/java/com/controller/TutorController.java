@@ -45,6 +45,7 @@ import com.controller.dto.TutorRq;
 import com.controller.dto.TutorRs;
 import com.model.Tutor;
 import com.repository.TutorCustomRepository;
+import com.repository.TutorRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

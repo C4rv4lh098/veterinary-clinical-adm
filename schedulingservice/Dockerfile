@@ -14,6 +14,7 @@ WORKDIR /opt/spring_boot
 COPY /schedulingservice/target/schedulingservice-0.0.1-SNAPSHOT*.jar schedulingservice-0.0.1-SNAPSHOT.jar
 
 SHELL ["/bin/sh", "-c"]
+ENTRYPOINT ["java", "-jar", "schedulingservice-0.0.1-SNAPSHOT.jar"]
 
 EXPOSE 5006
 EXPOSE 8081

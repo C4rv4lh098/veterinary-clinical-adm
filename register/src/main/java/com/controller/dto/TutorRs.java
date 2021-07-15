@@ -13,6 +13,7 @@ public class TutorRs {
    private String cpf;
    private String name;
    private String rg;
+   private String age;
    private String email;
    private String nationality;
    private String phone;
@@ -37,7 +38,7 @@ public class TutorRs {
        tutor.setRg(t.getRg());
        tutor.setEmail(t.getEmail());
        tutor.setNationality(t.getNationality());
-       tutor.setRg(t.getRg());
+       tutor.setAge(t.getAge());
 
        tutor.setCounty(t.getCounty());
        tutor.setState(t.getState());
@@ -86,6 +87,11 @@ public class TutorRs {
    public String getRg() { return rg; }
 
    public void setRg(String rg) { this.rg = rg; }
+
+
+   public String getAge() { return age; }
+
+   public void setAge(String age) { this.age = age; }
 
 
    public String getEmail() { return email; }
