@@ -1,4 +1,62 @@
-<h1>Este é o coponente calendar</h1>
-<p>
-  Aqui ficarar a parte do calendario para o agendamento
-</p>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-new-tab" data-toggle="tab" href="#nav-new" role="tab" aria-controls="nav-new" aria-selected="true">NOVA +</a>
+    <a class="nav-item nav-link" id="nav-schedule-tab" data-toggle="tab" href="#nav-schedule" role="tab" aria-controls="nav-schedule" aria-selected="false">AGENDAMENTOS</a>
+  </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-new" role="tabpanel" aria-labelledby="nav-new-tab"><br>
+    <form>
+      <div>
+        <label class="info"><Strong>Agende a nova consulta!</Strong></label>
+      </div><hr>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label class="campo">TUTOR</label>
+          <input id="name" type="text" class="form-control" placeholder="Nome completo do Tutor" required>
+        </div>
+        <div class="form-goup col-md-6">
+          <label class="campo">ANIMAL</label>
+          <input id="animal_name" type="text" class="form-control" placeholder="Nome do Pet" required>
+        </div>
+      </div>
+      <br><div class="form-row">
+        <div class="form-group col-md-0">
+          <label class="campo">Data: </label>
+        </div>
+        <div class="form-group col-md-2">
+          <input id="date" type="date" class="form-control"  min="2021-07-15" required>
+        </div>
+        <div class="form-group col-md-1">
+        </div>
+        <div class="form-group col-md-0">
+          <label class="campo">Horario: </label>
+        </div>
+        <div class="form-group col-md-1">
+          <input id="timein" type="time" class="form-control" required>
+        </div>
+        <div class="form-group col-md-0">
+          <label class="campo">atÃ©:</label></div>
+        <div class="form-group col-md-1">
+          <input id="timeout" type="time" class="form-control" required>
+        </div>
+      </div><br><br>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <button type="submit" class="btn  btn-outline-success">AGENDAR</button>
+        </div>
+        <div class="form-group col-md-0">
+          <label class="info">SEM CADASTRO?</label>
+        </div>
+        <div class="form-group col-md-0">
+          <button routerLink="/cadastro" type="button" class="btn  btn-outline-info">CADASTRO</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="tab-pane fade" id="nav-schedule" role="tabpanel" aria-labelledby="nav-schedule-tab"><br>
+    Consultas da semana!
+  </div>
+</div>
+
