@@ -81,7 +81,7 @@ VALUES (2,'000.000.000-01','Rodrigo Moura','0000000-1','23','email2@email.com','
 
 -- -- INSERT INTO dbclinic.animal
 INSERT INTO animal(animal_id, name, age, breed, species, sex, tutor_id)
-VALUES (2,'Ethos','12','shinauzer','canis','M',2), (3,'Dandara','12','Hitvailer','canis','M',2), (4,'Dexter','12','Hitvailer','canis','M',2);
+VALUES (2,'Ethos','5','shinauzer','canis','M',2), (3,'Dandara','6','Hitvailer','canis','M',2), (4,'Dexter','4','Hitvailer','canis','M',2);
 
 -- -- INSERT INTO dbclinic.tutor
 INSERT INTO tutor(tutor_id, cpf, name, rg, age, email, nationality, phone, cep, street, district, number, county, state) 
@@ -89,7 +89,7 @@ VALUES (3,'000.000.000-03','Raphaela Goes','0000000-2','23','email3@email.com','
 
 -- -- INSERT INTO dbclinic.animal
 INSERT INTO animal(animal_id, name, age, breed, species, sex, tutor_id)
-VALUES (5,'Bethoven','12','srd','canis','M',3);
+VALUES (5,'Bento','1','srd','canis','M',3);
 
 -- -- INSERT INTO dbclinic.agendamento
 INSERT INTO agendamento(consulta_id, data, horain, horaout, animal_id, tutor_id)
