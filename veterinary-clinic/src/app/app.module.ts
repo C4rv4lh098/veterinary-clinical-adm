@@ -10,6 +10,7 @@ import { HomeComponent } from '../app/home/home.component';
 import { HeaderComponent } from '../app/header/header.component';
 import { MenubarComponent } from '../app/menubar/menubar.component';
 import { CalendarComponent } from '../app/agendamento/calendar/calendar.component';
+import { FormularioComponent } from './cadastro/formulario/formulario.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CalendarComponent } from '../app/agendamento/calendar/calendar.componen
     HomeComponent,
     HeaderComponent,
     MenubarComponent,
-    CalendarComponent
+    CalendarComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
