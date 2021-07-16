@@ -12,7 +12,7 @@ import { CadastroAnimal } from "../models-animal/cadastro-animal.model";
     providedIn: 'root'
 })
 
-export class ContatoService {
+export class CadastroService {
     private apiTutorPath: string = "api/tutor/";
     private apiAnimalPath: string = "api/animal/";
 
@@ -26,7 +26,7 @@ export class ContatoService {
           map(this.jsonDataToCadastroTutores)
         )
       }
-    
+
 
     cadastrar(tutor: CadastroTutor): Observable<CadastroTutor>{
       return this.http.post(this.apiTutorPath, tutor).pipe(
@@ -37,20 +37,29 @@ export class ContatoService {
 
     editar(tutor: CadastroTutor): Observable<CadastroTutor>{
         const url = `${this.apiTutorPath}/${tutor.tutor_id}`;
-    
+
         return this.http.post(url, tutor).pipe(
           catchError(this.handleError),
           map(() => tutor)
         )
     }
 
-    buscarPorNomeCpf(nome: string, cpf: string): Observable<CadastroTutor> {
-        const url = `${this.apiTutorPath}/filter/custom/${nome || cpf}`;
-    
+  buscarPorNomeCpf(cpf: string ): Observable<CadastroTutor> {
+        const url = `${this.apiTutorPath}/filter/custom/${cpf}`;
+
         return this.http.get(url).pipe(
           catchError(this.handleError),
           map(this.jsonDataToCadastroTutor)
         )
+    }
+
+  buscarPorId(id: string): Observable<CadastroTutor> {
+      const url = `${this.apiTutorPath}/${id}`;
+
+      return this.http.get(url).pipe(
+        catchError(this.handleError),
+        map(this.jsonDataToCadastroTutor)
+      )
     }
 
 
@@ -77,7 +86,7 @@ export class ContatoService {
           map(this.jsonDataToCadastroAnimais)
         )
       }
-    
+
 
     cadastrarAnimal(animal: CadastroAnimal): Observable<CadastroAnimal>{
       return this.http.post(this.apiAnimalPath, animal).pipe(
@@ -88,16 +97,16 @@ export class ContatoService {
 
     editarAnimal(animal: CadastroAnimal): Observable<CadastroAnimal>{
         const url = `${this.apiAnimalPath}/${animal.animal_id}`;
-    
+
         return this.http.post(url, animal).pipe(
           catchError(this.handleError),
           map(() => animal)
         )
     }
 
-    buscarPorNome(nome: string): Observable<CadastroAnimal> {
-        const url = `${this.apiAnimalPath}/filter/custom/${nome}`;
-    
+    buscarPorNome(name: string): Observable<CadastroAnimal> {
+        const url = `${this.apiAnimalPath}/filter/custom/${name}`;
+
         return this.http.get(url).pipe(
           catchError(this.handleError),
           map(this.jsonDataToCadastroAnimal)
@@ -105,14 +114,14 @@ export class ContatoService {
     }
 
 
-    private jsonDataToCadastroAnimais(jsonData: any[]) : CadastroTutor[] {
-        const contatos: CadastroTutor[] = [];
-        jsonData.forEach(element => contatos.push(element as CadastroTutor));
+    private jsonDataToCadastroAnimais(jsonData: any[]) : CadastroAnimal[] {
+        const contatos: CadastroAnimal[] = [];
+        jsonData.forEach(element => contatos.push(element as CadastroAnimal));
         return contatos;
     }
 
-    private jsonDataToCadastroAnimal(jsonData: any): CadastroTutor{
-        return jsonData as CadastroTutor;
+    private jsonDataToCadastroAnimal(jsonData: any): CadastroAnimal{
+        return jsonData as CadastroAnimal;
     }
 
     // private handleError(error: any): Observable<any>{

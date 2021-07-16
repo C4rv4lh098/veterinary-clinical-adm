@@ -16,39 +16,40 @@ import { FormGroup } from '@angular/forms';
 })
 export class FormularioComponent implements OnInit {
 
-  cadastroForm: FormGroup;
+  cadastroForm: FormGroup | undefined;
   submittingForm: boolean = false;
-  currentAction: string;
-  tutor: CadastroTutor;
-  animal: CadastroAnimal;
-  pageTitle: string;
+  currentAction: string | undefined;
+  tutor: CadastroTutor | undefined;
+  animal: CadastroAnimal | undefined;
+  pageTitle: string | undefined;
 
-  constructor(private _cadastroService: CadastroService,
+  constructor(
+    private _cadastroService: CadastroService,
     private route: ActivatedRoute,
     private router: Router,) {}
 
   ngOnInit() {
     this.tutor = new CadastroTutor();
     this.animal = new CadastroAnimal();
-    this.setCurrentAction();
+    // this.setCurrentAction();
   }
 
   ngAfterContentChecked(){
     this.atualizarPageTitle();
   }
 
-  private setCurrentAction() {   
-    if(this.route.snapshot.url[1].path == "novo"){
-      this.currentAction = "new";    
-    }
-    else
-    {
-      this.currentAction = "edit";
-      this.carregarTutores();          
-    }
-  }
+  // private setCurrentAction() {
+  //   if(this.route.snapshot.url[1].path == "novo"){
+  //     this.currentAction = "new";
+  //   }
+  //   else
+  //   {
+  //     this.currentAction = "edit";
+  //     this.carregarTutores(tutor.tutor_id);
+  //   }
+  // }
 
-  submitForm(cadastroForm) {
+  submitForm(cadastroForm: { value: string; }) {
     console.log(cadastroForm)
     this.submittingForm = true;
 
@@ -56,14 +57,15 @@ export class FormularioComponent implements OnInit {
       this.cadastrarTutor(cadastroForm);
     }
     else {
+      // @ts-ignore
       this.editar(cadastroForm);
     }
   }
 
-  private carregarTutores() {
+  private carregarTutores(cpf: string) {
     if(this.currentAction == "edit"){
       this.route.paramMap.pipe(
-        switchMap(params => this._cadastroService.buscarPorTutorId(+params.get("tutor_id")))
+        switchMap(params => this._cadastroService.buscarPorNomeCpf("cpf"))
       )
       .subscribe(
         (c)=>{
@@ -74,18 +76,18 @@ export class FormularioComponent implements OnInit {
     }
   }
 
-  private cadastrarTutor(cadastroForm) {
-    const tutor: CadastroTutor = Object.assign(new CadastroTutor(), cadastroForm.value);    
+  private cadastrarTutor(cadastroForm: { value: any; }) {
+    const tutor: CadastroTutor = Object.assign(new CadastroTutor(), cadastroForm.value);
 
-     this._cadastroService.gravar(tutor)
+     this._cadastroService.cadastrar(tutor)
        .subscribe(
           () => this.cadastroGravadoComSucesso(),
           error => this.erroAoCadastrar(error)
        )
   }
 
-  private editar(cadastroForm) {
-    const tutor: CadastroTutor = Object.assign(new CadastroTutor(), cadastroForm.value);    
+  private editar(cadastroForm: number) {
+    const tutor: CadastroTutor = Object.assign(new CadastroTutor(), cadastroForm);
 
     this._cadastroService.editar(tutor)
       .subscribe(
@@ -98,17 +100,84 @@ export class FormularioComponent implements OnInit {
     this.router.navigateByUrl("/api/tutores/")
   }
 
-  private erroAoCadastrar(error) {
+  private erroAoCadastrar(error: { body: { error: any; }; }) {
     alert(error.body.error);
   }
 
   private atualizarPageTitle() {
     if(this.currentAction == "new")
-      this.pageTitle = "Cadastro de Novo Tutor";
+      this.pageTitle = "Novo cadastro";
     else{
-      const tutorNome = this.tutor.name || ""
-      this.pageTitle = "Editando Cadastro: " + tutorNome;
+      // const tutorNome = this.tutor.name || ""
+      this.pageTitle = "Editando Cadastro: ";
     }
   }
 
+  // ########################--ANIMAL--################################
+  submitFormAnimal(cadastroForm: any) {
+    console.log(cadastroForm)
+    this.submittingForm = true;
+
+    if (this.currentAction == "new") {
+      this.cadastrarTutor(cadastroForm);
+    }
+    else {
+      this.editar(cadastroForm);
+    }
+  }
+
+  private carregarAnimais(animal_id: number) {
+    if(this.currentAction == "edit"){
+      this.route.paramMap.pipe(
+        switchMap(params => this._cadastroService.buscarPorNome("name"))
+      )
+      .subscribe(
+        (c)=>{
+          this.animal = c;
+        },
+        (error) => alert('Ocorreu um erro no servidor, tente novamente.')
+      )
+    }
+  }
+
+  private cadastrarAnimal(cadastroForm: { value: any; }) {
+    const animal: CadastroAnimal = Object.assign(new CadastroAnimal(), cadastroForm.value);
+
+     this._cadastroService.cadastrarAnimal(animal)
+       .subscribe(
+          () => this.cadastroGravadoComSucesso(),
+          error => this.erroAoCadastrar(error)
+       )
+  }
+
+  private editarAnimal(cadastroForm: number) {
+    const animal: CadastroAnimal = Object.assign(new CadastroAnimal(), cadastroForm);
+
+    this._cadastroService.editarAnimal(animal)
+      .subscribe(
+        animal => this.cadastroGravadoComSucesso(),
+        error => this.erroAoCadastrar(error)
+      )
+  }
+
+  // private cadastroGravadoComSucesso() {
+  //   this.router.navigateByUrl("/api/tutores/")
+  // }
+
+  // private erroAoCadastrar(error) {
+  //   alert(error.body.error);
+  // }
+
+  // private atualizarPageTitle() {
+  //   if(this.currentAction == "new")
+  //     this.pageTitle = "Cadastro de Novo";
+  //   else{
+  //     const tutorNome = this.tutor.name || ""
+  //     this.pageTitle = "Editando Cadastro: " + tutorNome;
+  //   }
+  // }
+  // cadastro: number;
+
+
+  // }
 }

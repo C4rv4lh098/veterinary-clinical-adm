@@ -17,7 +17,7 @@
 .card-body{
     margin-top: 6%;
     padding-left: 5%;
-    box-sizing: 50px;
+    /*box-sizing: ;*/
     /* margin-bottom: 430%; */
     /* padding-bottom: 100%; */
     /* margin: 2px 1em auto 10px; */
@@ -52,40 +52,40 @@
 #tutor{
     margin-top: 20px;
     margin-left: 10px;
-    color: rgb(17, 17, 56);   
+    color: rgb(17, 17, 56);
 }
 
 #cidade{
     margin-top: 20px;
     margin-left: 10px;
     margin-bottom: 25px;
-    color: rgb(17, 17, 56);   
+    color: rgb(17, 17, 56);
 }
 
 #pet{
     margin-top: 20px;
     margin-left: 10px;
     margin-bottom: 20px;
-    color: rgb(17, 17, 56);   
+    color: rgb(17, 17, 56);
 }
 
 #face-icon{
     margin-top: 22px;
     margin-left: 20px;
-    color: rgb(17, 17, 56);   
+    color: rgb(17, 17, 56);
 }
 
 #place-icon{
     margin-top: 20px;
     margin-left: 20px;
     margin-bottom: 25px;
-    color: rgb(17, 17, 56);   
+    color: rgb(17, 17, 56);
 }
 
 #pets-icon{
     margin-top: 20px;
     margin-left: 20px;
     margin-bottom: 20px;
-    color: rgb(17, 17, 56);   
+    color: rgb(17, 17, 56);
 }
 

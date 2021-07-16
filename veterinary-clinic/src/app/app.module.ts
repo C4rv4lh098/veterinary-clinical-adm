@@ -11,6 +11,7 @@ import { HeaderComponent } from '../app/header/header.component';
 import { MenubarComponent } from '../app/menubar/menubar.component';
 import { CalendarComponent } from '../app/agendamento/calendar/calendar.component';
 import {FormularioComponent} from "./cadastro/formulario/formulario.component";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -25,10 +26,11 @@ import {FormularioComponent} from "./cadastro/formulario/formulario.component";
         CalendarComponent,
         FormularioComponent
     ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

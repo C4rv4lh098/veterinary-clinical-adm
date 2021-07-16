@@ -2,6 +2,7 @@ export class CadastroTutor {
     tutor_id?: number;
     name?: string;
     email?: string;
+    cpf?: string;
     rg?: string;
     age?: string;
     nationality?: string;
