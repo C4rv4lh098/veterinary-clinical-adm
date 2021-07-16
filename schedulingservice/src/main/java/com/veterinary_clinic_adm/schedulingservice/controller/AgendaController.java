@@ -20,13 +20,9 @@ public class AgendaController {
     @Autowired
     private AgendaRepository agendaRepository;
 
-    /*@GetMapping("/consultas")
-    public Iterable<Agenda> getAllAgendas(){
-        return agendaRepository.findAll();
-    }*/
-
     @GetMapping("/consultas")
     private Iterable<Agenda> getAllAgendas(){
+
         return agendaRepository.findAll();
     }
 
@@ -34,7 +30,7 @@ public class AgendaController {
     public ResponseEntity<Agenda> getAgendabyId(@PathVariable(value = "id") Long agendaId)
         throws ResourceNotFoundException{
         Agenda agenda = agendaRepository.findById(agendaId)
-                .orElseThrow(()-> new ResourceNotFoundException("Consulta not Found::" + agendaId));
+                .orElseThrow(()-> new ResourceNotFoundException("Consulta não encontrada com esse Id::" + agendaId));
         return ResponseEntity.ok().body(agenda);
     }
 
@@ -47,19 +43,8 @@ public class AgendaController {
         a.setHorain(agenda.getHorain());
         a.setHoraout(agenda.getHoraout());
         agendaRepository.save(a);
+
     }
-
-    /*@PostMapping("/consultas")
-    public Agenda createAgenda(@Valid @RequestBody Agenda agenda){
-        Agenda n = new Agenda();
-        n.setTutor_id(tutor_id);
-        n.setAnimal_id(animal_id);
-        n.setDate(date);
-        n.setHorain(horain);
-        n.setHoraout(horaout);
-
-        return agendaRepository.save(agenda);
-    }*/
 
     @PutMapping("/consultas/{id}")
     public ResponseEntity<Agenda> updateAgenda(@PathVariable (value = "id") Long agendaId,
@@ -75,16 +60,7 @@ public class AgendaController {
         return ResponseEntity.ok(updateAgenda);
     }
 
-    @DeleteMapping(path ={"/consulta/{id}"})
-    public ResponseEntity <?> deleteAgenda(@PathVariable long id) {
-        return agendaRepository.findById(id)
-                .map(record -> {
-                    agendaRepository.deleteById(id);
-                    return ResponseEntity.ok().build();
-                }).orElse(ResponseEntity.notFound().build());
-    }
-/*
-    @DeleteMapping("/consulta/{id}")
+    @DeleteMapping("/consultas/{id}")
     public Map<String, Boolean> deleteAgenda(@PathVariable(value = "id") Long agendaId)
         throws ResourceNotFoundException{
         Agenda agenda = agendaRepository.findById(agendaId)
@@ -93,5 +69,5 @@ public class AgendaController {
         Map<String, Boolean> response = new HashMap< >();
         response.put("deleted", Boolean.TRUE);
         return response;
-    }*/
+    }
 }
