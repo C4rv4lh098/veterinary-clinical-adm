@@ -1,3 +1,7 @@
+.img{
+    width: 10px;
+}
+
 .container{
     background-size: 100%;
     padding: 0%;
@@ -11,11 +15,11 @@
     /* margin: auto; */
 }
 .card-body{
-    padding-top: 10%;
+    margin-top: 6%;
     padding-left: 5%;
     box-sizing: 50px;
-    margin-bottom: 430%;
-    padding-bottom: 100%;
+    /* margin-bottom: 430%; */
+    /* padding-bottom: 100%; */
     /* margin: 2px 1em auto 10px; */
 
   }
