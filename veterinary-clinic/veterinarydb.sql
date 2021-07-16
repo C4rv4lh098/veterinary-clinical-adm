@@ -47,8 +47,8 @@ CREATE TABLE `address` (
   `data` DATE NOT NULL,
   `horain` TIME NOT NULL,
   `horaout` TIME NOT NULL,
-  `animal_id` INT AUTO_INCREMENT NOT NULL,
-  `tutor_id` INT AUTO_INCREMENT NOT NULL,
+  `animal_id` INT NOT NULL,
+  `tutor_id` INT NOT NULL,
   PRIMARY KEY (`consulta_id`),
   FOREIGN KEY (animal_id) references animal(animal_id),
   FOREIGN KEY (tutor_id) references tutor(tutor_id));
