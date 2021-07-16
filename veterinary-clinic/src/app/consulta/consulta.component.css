@@ -1,5 +1,10 @@
 .card{
-  width: 25rem;
-  height: 72.8rem;
+  width: 20rem;
+  height: 50.8rem;
   margin-left: -2rem;
+}
+#formulario{
+  width: 95rem;
+  height: 50.8rem;
+  margin-left: -25rem;
 }
