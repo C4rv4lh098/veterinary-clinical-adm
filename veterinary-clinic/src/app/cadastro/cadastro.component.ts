@@ -2,9 +2,10 @@ import { Component, OnInit, Input, ElementRef, ViewChild, OnChanges, OnDestroy, 
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject, Subscription } from 'rxjs';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/distinctUntilChanged';
+import { FormularioComponent } from './formulario/formulario.component';
+// import 'rxjs/add/operator/debounceTime';
+// import 'rxjs/add/operator/map';
+// import 'rxjs/add/operator/distinctUntilChanged';
 // import { BreakpointObserver } from "@angular/cdk/layout";
 // import { cadastroInterface } from '../../interfaces/cadastro-interface';
 // import { AlertService } from 'src/app/shared/alert/alert.service';

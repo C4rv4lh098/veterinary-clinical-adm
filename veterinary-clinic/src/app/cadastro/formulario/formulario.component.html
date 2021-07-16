@@ -1,0 +1,123 @@
+
+<div class="container">
+    <div class="row">
+        <!-- <app-menubar class="card"></app-menubar> -->
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                <button routerLink="/cadastro" type="button" style="font-size: medium; margin-top: 10%;" class="btn btn-outline-success btn-lg btn-block">EDITAR</button><br><br>
+                <button routerLink="/agendamento" type="button" style="font-size: medium;" class="btn btn-outline-success btn-lg btn-block">BUSCAR</button><br><br>
+                <button routerLink='/consulta' type="button" style="font-size: medium;" class="btn btn-outline-success btn-lg btn-block">DELETAR</button>
+            </div>
+          </div>
+        </div>
+    
+    <form class="col-sm-10" style="margin-left: 60px;" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <br>
+    <div style="text-align: center; background-size: 20px; background-color: rgb(32, 155, 87); margin-top: 0%;">
+        <label style="margin-top: 9px; color: aliceblue;"><Strong>CADASTRO</Strong></label>
+    </div>
+    <div class="tutor" ><i id="face-icon" class="material-icons">face</i><label id="tutor" icon="glyphicon glyphicon-user"><Strong>TUTOR</Strong></label><hr></div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="campo">NOME</label>
+        <input id="name" type="text" class="form-control" placeholder="Nome completo do Tutor" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="campo">EMAIL</label>
+        <input id="email" type="email" class="form-control" placeholder="exemplo@email.com" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <label for="campo">IDADE</label>
+        <input id="age" type="text" class="form-control" placeholder="Idade" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="campo">IDENTIDDE</label>
+        <input id="rg" type="text" class="form-control" placeholder="RG" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="campo">CPF</label>
+        <input id="cpf" type="text" class="form-control" placeholder="CPF" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="campo">TELEFONE</label>
+        <input id="phone" type="text" class="form-control" placeholder="(99) 99999-9999" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="campo">NACIONALIDADE</label>
+        <input id="nationality" type="text" class="form-control" placeholder="Nacionalidade" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="campo">ENDEREÇO</label>
+        <input id="street" type="text" class="form-control"  placeholder="Rua" required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="campo">BAIRRO</label>
+        <input id="district" type="text" class="form-control"  placeholder="Bairro" required>
+      </div>
+      <div class ="form-gorup col-md-2">
+        <label for="campo">NÚMERO</label>
+        <input id="number" type="text" class="form-control" placeholder="Número" required>
+      </div>
+      <div class ="form-gorup col-md-2">
+        <label for="campo">CEP</label>
+        <input id="cep" type="text" class="form-control" placeholder="CEP" required>
+      </div>
+    </div>
+    <hr>
+    <div class="cidade" ><i id="place-icon" class="material-icons">place</i><label id="cidade"><Strong>CIDADE</Strong></label></div><hr>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="campo">MUNICIPIO</label>
+        <input id="county" type="text" class="form-control" placeholder="Municipio" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="campo">ESTADO</label>
+        <input id="state" type="text" class="form-control" placeholder="Estado" required>
+      </div>
+    </div><hr>
+    <div class="pet" ><i id="pets-icon" class="material-icons">pets</i><label id="pet"><Strong>PET</Strong></label></div><hr>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="campo">NOME</label>
+        <input id="animal_name" type="text" class="form-control" placeholder="Nome do Pet" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="campo">IDADE</label>
+        <input id="animal_age" type="text" class="form-control" placeholder="Idade do Pet" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="campo">SEXO</label>
+        <select id="inputSex" class="custom-select my-1 mr-sm-2">
+          <option selected>Sexo...</option>
+          <option>M</option>
+          <option>F</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="campo">ESPÉCIE</label>
+        <select id="inputSpecies" class="custom-select my-1 mr-sm-2">
+          <option selected>Selecione...</option>
+          <option>Cachorro</option>
+          <option>Gato</option>
+          <option>Periquito</option>
+          <option>Papaguaio</option>
+          <option>Rato</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="campo">RAÇA</label>
+        <input id="breed" type="text" class="form-control" placeholder="Raça" required>
+      </div>
+    </div>
+  
+    <br><button type="submit" class="btn  btn-outline-primary">REGISTRAR</button>
+    
+  </form>
+ </div>
+</div>

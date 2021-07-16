@@ -1,0 +1,87 @@
+.container{
+    background-size: 100%;
+    padding: 0%;
+    margin: 0%;
+    margin-right: 0%;
+
+}
+
+.row{
+    padding: 0%;
+    /* margin: auto; */
+}
+.card-body{
+    padding-top: 10%;
+    padding-left: 5%;
+    box-sizing: 50px;
+    margin-bottom: 430%;
+    padding-bottom: 100%;
+    /* margin: 2px 1em auto 10px; */
+
+  }
+
+#button{
+    width: auto;
+}
+/* .body {
+    margin: 0px;
+} */
+
+.tutor {
+    background-color: rgb(231, 231, 231);
+    /* margin-block: 50px; *
+    /* background-position: center; */
+}
+
+.cidade {
+    background-color: rgb(231, 231, 231);
+    /* margin-block: 50px; *
+    /* background-position: center; */
+}
+
+.pet {
+    background-color: rgb(231, 231, 231);
+    /* margin-block: 50px; *
+    /* background-position: center; */
+}
+
+#tutor{
+    margin-top: 20px;
+    margin-left: 10px;
+    color: rgb(17, 17, 56);   
+}
+
+#cidade{
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 25px;
+    color: rgb(17, 17, 56);   
+}
+
+#pet{
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    color: rgb(17, 17, 56);   
+}
+
+#face-icon{
+    margin-top: 22px;
+    margin-left: 20px;
+    color: rgb(17, 17, 56);   
+}
+
+#place-icon{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 25px;
+    color: rgb(17, 17, 56);   
+}
+
+#pets-icon{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: rgb(17, 17, 56);   
+}
+

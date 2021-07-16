@@ -57,9 +57,9 @@ public class AnimalController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/{id}")
-    public AnimalRs findById(@PathVariable("id") Long id) {
-        var animal = animalRepository.getOne(id);
+    @GetMapping("/{animal_id}")
+    public AnimalRs findByAnimalId(@PathVariable("animal_id") Long animal_id) {
+        var animal = animalRepository.getOne(animal_id);
         return AnimalRs.converter(animal);
     }
 
@@ -76,9 +76,9 @@ public class AnimalController {
         animalRepository.save(a);
     }
 
-    @PutMapping("/{id}")
-    public void updatePerson(@PathVariable("id") Long id, @RequestBody AnimalRq animal) throws Exception {
-        var a = animalRepository.findById(id);
+    @PutMapping("/{animal_id}")
+    public void updatePerson(@PathVariable("animal_id") Long animal_id, @RequestBody AnimalRq animal) throws Exception {
+        var a = animalRepository.findById(animal_id);
 
         if (a.isPresent()) {
             var animalSave = a.get();

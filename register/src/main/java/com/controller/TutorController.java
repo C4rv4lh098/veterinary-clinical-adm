@@ -75,9 +75,9 @@ public class TutorController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/{id}")
-    public TutorRs findById(@PathVariable("id") Long id) {
-        var tutor = tutorRepository.getOne(id);
+    @GetMapping("/{tutor_id}")
+    public TutorRs findByTutorId(@PathVariable("tutor_id") Long tutor_id) {
+        var tutor = tutorRepository.getOne(tutor_id);
         return TutorRs.converter(tutor);
     }
 
@@ -108,9 +108,9 @@ public class TutorController {
 
     }
 
-    @PutMapping("/{id}")
-    public void updatePerson(@PathVariable("id") Long id, @RequestBody TutorRq tutor) throws Exception {
-        var t = tutorRepository.findById(id);
+    @PutMapping("/{tutor_id}")
+    public void updatePerson(@PathVariable("tutor_id") Long tutor_id, @RequestBody TutorRq tutor) throws Exception {
+        var t = tutorRepository.findById(tutor_id);
 
         if (t.isPresent()) {
             var tutorSave = t.get();
@@ -136,13 +136,13 @@ public class TutorController {
         }
     }
 
-//    @GetMapping("/filter")
-//    public List<TutorRs> findPersonByCpf(@RequestParam("cpf") String cpf) {
-//        return this.tutorRepository.findByCpfContains(cpf)
-//                .stream()
-//                .map(TutorRs::converter)
-//                .collect(Collectors.toList());
-//    }
+    @GetMapping("/filter")
+    public List<TutorRs> findPersonByCpf(@RequestParam("cpf") String cpf) {
+        return this.tutorRepository.findByCpfContains(cpf)
+                .stream()
+                .map(TutorRs::converter)
+                .collect(Collectors.toList());
+    }
 
     @GetMapping("/filter/custom")
     public List<TutorRs> findPersonByCustom(

@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AnimalRepository extends JpaRepository<Animal, String> {
+public interface AnimalRepository extends JpaRepository<Animal, Long> {
+
+    // List<Animal> getById(Long id);
+
     List<Animal> findByNameContains(String name);
+
+    // Animal getOne(Long id);
 }

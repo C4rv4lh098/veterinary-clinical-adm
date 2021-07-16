@@ -10,19 +10,21 @@ import { HomeComponent } from '../app/home/home.component';
 import { HeaderComponent } from '../app/header/header.component';
 import { MenubarComponent } from '../app/menubar/menubar.component';
 import { CalendarComponent } from '../app/agendamento/calendar/calendar.component';
+import {FormularioComponent} from "./cadastro/formulario/formulario.component";
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AgendamentoComponent,
-    CadastroComponent,
-    ConsultaComponent,
-    HomeComponent,
-    HeaderComponent,
-    MenubarComponent,
-    CalendarComponent
-  ],
+    declarations: [
+        AppComponent,
+        AgendamentoComponent,
+        CadastroComponent,
+        ConsultaComponent,
+        HomeComponent,
+        HeaderComponent,
+        MenubarComponent,
+        CalendarComponent,
+        FormularioComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule
