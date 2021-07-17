@@ -83,7 +83,7 @@ services:
 
   
   schedulingservice:
-    command: --init-file /mvn.sh
+    # command: mvn clean install
     build:
       context: ./
       dockerfile: ./schedulingservice/Dockerfile
@@ -105,7 +105,7 @@ services:
 
 
   register:
-    command: --init-file /mvn.sh
+    # command: mvn clean install
     build:
       context: ./
       dockerfile: ./register/Dockerfile

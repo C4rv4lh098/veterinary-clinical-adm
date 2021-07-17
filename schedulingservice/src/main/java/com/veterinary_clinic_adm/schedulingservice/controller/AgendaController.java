@@ -1,23 +1,16 @@
 package com.veterinary_clinic_adm.schedulingservice.controller;
 
+import com.veterinary_clinic_adm.schedulingservice.controller.dto.AgendaRq;
 import com.veterinary_clinic_adm.schedulingservice.model.Agenda;
 import com.veterinary_clinic_adm.schedulingservice.expection.ResourceNotFoundException;
 import com.veterinary_clinic_adm.schedulingservice.repository.AgendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import javax.validation.Valid;
 
 @RestController @CrossOrigin(origins = "http://localhost:4200")
@@ -28,7 +21,8 @@ public class AgendaController {
     private AgendaRepository agendaRepository;
 
     @GetMapping("/consultas")
-    public List<Agenda> getAllAgendas(){
+    private Iterable<Agenda> getAllAgendas(){
+
         return agendaRepository.findAll();
     }
 
@@ -36,13 +30,20 @@ public class AgendaController {
     public ResponseEntity<Agenda> getAgendabyId(@PathVariable(value = "id") Long agendaId)
         throws ResourceNotFoundException{
         Agenda agenda = agendaRepository.findById(agendaId)
-                .orElseThrow(()-> new ResourceNotFoundException("Consulta not Found::" + agendaId));
+                .orElseThrow(()-> new ResourceNotFoundException("Consulta não encontrada com esse Id::" + agendaId));
         return ResponseEntity.ok().body(agenda);
     }
 
-    @PostMapping("consultas")
-    public Agenda createAgenda(@Valid @RequestBody Agenda agenda){
-        return agendaRepository.save(agenda);
+    @PostMapping("/consultas")
+    public void saveAgenda(@RequestBody AgendaRq agenda){
+        Agenda a = new Agenda();
+        a.setTutor_id(agenda.getTutor_id());
+        a.setAnimal_id(agenda.getAnimal_id());
+        a.setDate(agenda.getDate());
+        a.setHorain(agenda.getHorain());
+        a.setHoraout(agenda.getHoraout());
+        agendaRepository.save(a);
+
     }
 
     @PutMapping("/consultas/{id}")
@@ -50,15 +51,16 @@ public class AgendaController {
                                                @Valid @RequestBody Agenda agendaDetails) throws ResourceNotFoundException{
         Agenda agenda = agendaRepository.findById(agendaId)
                 .orElseThrow(()-> new ResourceNotFoundException("Consulta não encontrada com esse Id::" + agendaId));
-        agenda.setTutorName(agendaDetails.getTutorName());
-        agenda.setAnimalName(agendaDetails.getAnimalName());
+        agenda.setTutor_id(agendaDetails.getTutor_id());
+        agenda.setAnimal_id(agendaDetails.getAnimal_id());
         agenda.setDate(agendaDetails.getDate());
-        agenda.setStartHour(agendaDetails.getStartHour());
-        agenda.setEndHour(agendaDetails.getEndHour());
+        agenda.setHorain(agendaDetails.getHorain());
+        agenda.setHoraout(agendaDetails.getHoraout());
         final Agenda updateAgenda = agendaRepository.save(agenda);
         return ResponseEntity.ok(updateAgenda);
     }
 
+    @DeleteMapping("/consultas/{id}")
     public Map<String, Boolean> deleteAgenda(@PathVariable(value = "id") Long agendaId)
         throws ResourceNotFoundException{
         Agenda agenda = agendaRepository.findById(agendaId)

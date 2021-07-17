@@ -11,10 +11,13 @@ ENV ADDITIONAL_OPTS=${ADDITIONAL_OPTS}
 
 WORKDIR /opt/spring_boot
 
+RUN apt-get install mvn
+
+RUN mvn clean install
+
 COPY /schedulingservice/target/schedulingservice-0.0.1-SNAPSHOT*.jar schedulingservice-0.0.1-SNAPSHOT.jar
 
 SHELL ["/bin/sh", "-c"]
-ENTRYPOINT ["java", "-jar", "schedulingservice-0.0.1-SNAPSHOT.jar"]
 
 EXPOSE 5006
 EXPOSE 8081

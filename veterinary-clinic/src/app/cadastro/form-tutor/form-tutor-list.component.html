@@ -1,0 +1,56 @@
+<h2>BUSCAR TUTOR</h2>
+
+<div class="form-group row">
+
+    <label class="col-sm-2 col-form-label">FILTRAR POR:</label>
+
+    <div class="col-sm-10">
+        <input [(ngModel)]="filter" class="form-control">
+    </div>
+
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>NAME</th>
+            <th>CPF</th>
+            <th>RG</th>
+            <th>AGE</th>
+            <th>EMAIL</th>
+            <th>NATIONALITY</th>
+            <th>PHONE</th>
+
+            <th>CEP</th>
+            <th>STREET</th>
+            <th>DISTRICT</th>
+            <th>COUNTY</th>
+            <th>STATE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tutor of filteredTutor">
+            <!-- <td><img [src]="tutor.imageUrl" width="40" height="40" ></td> -->
+            <td>{{ tutor.name }}</td>
+            <td>{{ tutor.cpf }}</td>
+            <td>{{ tutor.rg  }}</td>
+            <td>{{ tutor.age }}</td>
+            <td>{{ tutor.email }}</td>
+            <td>{{ tutor.nationality }}</td>
+            <td>{{ tutor.phone }}</td>
+            <td>{{ tutor.cep }}</td>
+            <td>{{ tutor.street }}</td>
+            <td>{{ tutor.district }}</td>
+            <td>{{ tutor.county }}</td>
+            <td>{{ tutor.state }}</td>
+            <!-- <td>
+                <app-star [rating]="course.rating"></app-star>
+            </td> -->
+            <td>
+                <a [routerLink]="['/api/tutor/', tutor.tutor_id]" class="btn btn-primary mr-2">EDITAR</a>
+                <!-- <button (click)="deleteById(course.id)" class="btn btn-danger">Delete</button> -->
+            </td>
+        </tr>
+    </tbody>
+
+</table>
