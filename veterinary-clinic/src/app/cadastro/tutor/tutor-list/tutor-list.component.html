@@ -1,0 +1,58 @@
+<div class="card">
+<!-- <div class="card-body"> -->
+<div class="panel panel-success">
+    <div class="panel-heading">
+      <div class="card" style="background-color: #198754;">
+        <h3 class="card-body" style="text-align: center; color: rgb(255, 255, 255); font-weight: bolder; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">TUTORES</h3>
+        </div>
+    </div>
+    <div style="background-color: rgb(222, 232, 253);" class="panel-body">
+      <table id="example" class="table table-striped table-bordered table-sm row-border hover" cellspacing="0" width="100%">
+
+        <thead>
+          <tr style="background-color: #e0ffe8;">
+            <th> ID </th>
+            <th>NOME</th>
+            <th>CPF</th>
+            <th>RG</th>
+            <th>EMAIL</th>
+            <th>NACIONALIDADE</th>
+            <th>TELEFONE</th>
+            <th>CIDADE</th>
+            <th>ESTADO</th>
+            <th>CEP</th>
+            <th>DISTRICT</th>
+            <th>RUA</th>
+            <th>NÚMERO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tutor of tutors | async">
+            
+            <td>{{tutor.tutor_id}}</td>
+            <td>{{tutor.name}}</td>
+            <td>{{tutor.cpf}}</td>
+            <td>{{tutor.rg}}</td>
+            <td>{{tutor.email}}</td>
+            <td>{{tutor.nationality}}</td>
+            <td>{{tutor.phone}}</td>
+            <td>{{tutor.county}}</td>
+            <td>{{tutor.state}}</td>
+            <td>{{tutor.cep}}</td>
+            <td>{{tutor.district}}</td>
+            <td>{{tutor.street}}</td>
+            <td>{{tutor.number}}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<!-- </div> -->
+</div>
+
+<div style="background-color: rgb(222, 232, 253);" class="card">
+  <div class="card-body">
+    <br><button routerLink="/cadastro" type="button" class="btn btn-outline-primary btn-lg btn-block">VOLTAR</button><br><br>
+  </div>
+</div>
