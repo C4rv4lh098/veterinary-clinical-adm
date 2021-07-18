@@ -10,6 +10,11 @@ import { HomeComponent } from '../app/home/home.component';
 import { HeaderComponent } from '../app/header/header.component';
 import { MenubarComponent } from '../app/menubar/menubar.component';
 import { CalendarComponent } from '../app/agendamento/calendar/calendar.component';
+import { FormularioComponent } from '../app/cadastro/formulario/formulario.component';
+import { UpdateAgendaComponent } from '../app/agendamento/calendar/update-agenda/update-agenda.component';
+import { CreateAgendaComponent } from '../app/agendamento/calendar/create-agenda/create-agenda.component';
+import { ListAgendaComponent } from '../app/agendamento/calendar/list-agenda/list-agenda.component';
+import { AgendamentoService } from './agendamento/service/agendamento.service';
 
 
 @NgModule({
@@ -21,13 +26,17 @@ import { CalendarComponent } from '../app/agendamento/calendar/calendar.componen
     HomeComponent,
     HeaderComponent,
     MenubarComponent,
-    CalendarComponent
+    CalendarComponent,
+    FormularioComponent,
+    UpdateAgendaComponent,
+    CreateAgendaComponent,
+    ListAgendaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AgendamentoService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

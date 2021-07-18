@@ -20,12 +20,14 @@ public class AgendaController {
     @Autowired
     private AgendaRepository agendaRepository;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/consultas")
     private Iterable<Agenda> getAllAgendas(){
 
         return agendaRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/consultas/{id}")
     public ResponseEntity<Agenda> getAgendabyId(@PathVariable(value = "id") Long agendaId)
         throws ResourceNotFoundException{
@@ -34,6 +36,7 @@ public class AgendaController {
         return ResponseEntity.ok().body(agenda);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/consultas")
     public void saveAgenda(@RequestBody AgendaRq agenda){
         Agenda a = new Agenda();
@@ -45,7 +48,8 @@ public class AgendaController {
         agendaRepository.save(a);
 
     }
-
+    
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/consultas/{id}")
     public ResponseEntity<Agenda> updateAgenda(@PathVariable (value = "id") Long agendaId,
                                                @Valid @RequestBody Agenda agendaDetails) throws ResourceNotFoundException{
@@ -60,6 +64,7 @@ public class AgendaController {
         return ResponseEntity.ok(updateAgenda);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/consultas/{id}")
     public Map<String, Boolean> deleteAgenda(@PathVariable(value = "id") Long agendaId)
         throws ResourceNotFoundException{

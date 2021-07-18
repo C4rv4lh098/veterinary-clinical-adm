@@ -1,0 +1,37 @@
+  
+<h3>Create Employee</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Consulta_id</label>
+      <input type="text" class="form-control" id="consulta" required [(ngModel)]="agenda.consulta_id" name="consulta">
+    </div>
+
+    <div class="form-group">
+      <label for="name">tutor_id</label>
+      <input type="text" class="form-control" id="tutor_id" required [(ngModel)]="agenda.tutor_id" name="tutor_id">
+    </div>
+
+    <div class="form-group">
+      <label for="name">animal_id</label>
+      <input type="text" class="form-control" id="animal_id" required [(ngModel)]="agenda.animal_id" name="animal_id">
+    </div>
+
+    <div class="form-group">
+      <label for="name">date</label>
+      <input type="text" class="form-control" id="date" required [(ngModel)]="agenda.date" name="date">
+    </div>
+
+    <div class="form-group">
+        <label for="name">horain</label>
+        <input type="text" class="form-control" id="horain" required [(ngModel)]="agenda.horain" name="horain">
+      </div>
+
+      <div class="form-group">
+        <label for="name">horaout</label>
+        <input type="text" class="form-control" id="horaout" required [(ngModel)]="agenda.horaout" name="horaout">
+      </div>
+
+    <button class="btn btn-success">Submit</button>
+  </form>
+</div>

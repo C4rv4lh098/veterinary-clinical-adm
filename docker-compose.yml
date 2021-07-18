@@ -4,12 +4,39 @@ services:
 
   # docker container run --name mysqldb --network employee-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=bootdb -d mysql:8
 
-  frontend-angular:
-    image: nginx:1.17.10-alpine
-    ports:
-      - 20080:80
-    volumes:
-      - ./frontend-angular/dist/frontend-angular:/usr/share/nginx/html
+  # ----------------------
+  # frontend-angular:
+  #   image: nginx:1.17.10-alpine
+  #   ports:
+  #     - 20080:80
+  #   volumes:
+  #     - ./frontend-angular/dist/frontend-angular:/usr/share/nginx/html
+# -------------------
+
+  # angular-service:
+  #   container_name: angular-veterinary
+  #   build:
+  #     context: ./
+  #     dockerfile: ./veterinary-clinic/Dockerfile 
+  #   volumes: 
+  #     - ./veterinary-clinic:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #   ports:
+  #     - "4201:4200"
+  #   command: >
+  #     bash -c "npm start"
+  
+  # docker-nginx:
+  #   container_name: docker-nginx
+  #   build: 
+  #     context: ./
+  #     dockerfile: ./veterinary-clinic/Dockerfile
+  #   ports:
+  #     - "80:80"
+  #   command: ["nginx", "-g", "daemon off;"]
+  #   links:
+  #     - angular-service
+
     # links:
     #   - schedulingservice
   # db:
@@ -37,36 +64,38 @@ services:
   #   networks:
   #     - scheduling-mysql
 
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin:latest
-  #   depends_on:
-  #     - db
-  #   ports:
-  #     - "8888:80"
-  #   environment:
-  #     - MYSQL_ROOT_PASSWORD=root
-  #     - MYSQL_DATABASE=veterinary 
-  #   links:
-  #     - db 
-    # networks:
-    #   - scheduling-mysql
-  # -----------------------------------
-    # labels:
-    #   - environment:development
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    depends_on:
+      - db
+    ports:
+      - "8888:80"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=dbclinic 
+    links:
+      - db 
+  #   networks:
+  #     - scheduling-mysql
+  # # -----------------------------------
+  #   labels:
+  #     - environment:development
 
   db:
     image: mysql:latest
-    command: --default-authentication-plugin=mysql_native_password
+    # command: --default-authentication-plugin=mysql_native_password 
+    command: --init-file /init.sql
     ports:
       - '3306:3306'
     environment:
       # - MYSQL_ROOT_HOST=%
-      - MYSQL_DATABASE=veterinary
+      - MYSQL_DATABASE=dbclinic
       # - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=password
       # - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - ./docker/volume_mysql:/var/lib/mysql
+      - ./init.sql:/init.sql
 
     # environment:
     #   - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
@@ -78,6 +107,7 @@ services:
 
   
   schedulingservice:
+    # command: mvn clean install
     build:
       context: ./
       dockerfile: ./schedulingservice/Dockerfile
@@ -89,30 +119,17 @@ services:
     volumes:
       - "./schedulingservice:/home/schedulingservice"
     environment:
-      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
       - PROFILE=dev
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=dbclinic
+#      - MYSQL_ROOT_HOST= '%'
     links:
       - db
 
-  # agendamento:
-  #   build:
-  #     context: ./
-  #     dockerfile: ./agendamento/Dockerfile
-  #   image: agendamento/api
 
-  #   ports:
-  #     - "8080:8080"
-  #     - "5005:5005"
-  #   volumes:
-  #     - "./agendamento:/home/agendamento"
-  #   environment:
-  #     - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
-  #     - PROFILE=dev
-  #   links:
-  #     - db
-    # tty: true
-  
-  registerservice:
+  register:
+    # command: mvn clean install
     build:
       context: ./
       dockerfile: ./register/Dockerfile
@@ -124,8 +141,11 @@ services:
     volumes:
       - "./register:/home/register"
     environment:
-      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5007 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
       - PROFILE=dev
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=dbclinic
+#      - MYSQL_ROOT_HOST= '%'
     links:
       - db
       
