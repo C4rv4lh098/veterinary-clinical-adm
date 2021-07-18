@@ -30,7 +30,7 @@ CREATE TABLE animal (
   breed VARCHAR(40) NOT NULL,
   species VARCHAR(40) NOT NULL,
   sex VARCHAR(1) NOT NULL,
-  tutor_id INT NOT NULL,
+  tutor_id INT,
   PRIMARY KEY (animal_id),
   FOREIGN KEY (tutor_id) references tutor(tutor_id));
 

@@ -66,7 +66,8 @@ public class TutorController {
         this.tutorCustomRepository = tutorCustomRepository;
     }
 
-    @GetMapping("/")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/") 
     public List<TutorRs> findAll() {
         var tutores = tutorRepository.findAll();
         return tutores
@@ -75,13 +76,15 @@ public class TutorController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/{tutor_id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/{tutor_id}") 
     public TutorRs findByTutorId(@PathVariable("tutor_id") Long tutor_id) {
         var tutor = tutorRepository.getOne(tutor_id);
         return TutorRs.converter(tutor);
     }
 
-    @PostMapping("/tutor")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/tutor")  
     public ResponseEntity<String> savePerson(@RequestBody TutorRq tutor) {
         var t = new Tutor();
 
@@ -108,7 +111,8 @@ public class TutorController {
 
     }
 
-    @PutMapping("/{tutor_id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PutMapping("/{tutor_id}") 
     public void updatePerson(@PathVariable("tutor_id") Long tutor_id, @RequestBody TutorRq tutor) throws Exception {
         var t = tutorRepository.findById(tutor_id);
 
@@ -130,13 +134,15 @@ public class TutorController {
             tutorSave.setStreet(tutor.getStreet());
             tutorSave.setDistrict(tutor.getDistrict());
             tutorSave.setNumber(tutor.getNumber());
+            
             tutorRepository.save(tutorSave);
         } else {
             throw new Exception("Pessoa Não encontrada");
         }
     }
 
-    @GetMapping("/filter")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/filter") 
     public List<TutorRs> findPersonByCpf(@RequestParam("cpf") String cpf) {
         return this.tutorRepository.findByCpfContains(cpf)
                 .stream()
@@ -144,7 +150,8 @@ public class TutorController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/filter/custom")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/filter/custom") 
     public List<TutorRs> findPersonByCustom(
             @RequestParam(value = "cpf", required = false) String cpf,
             @RequestParam(value = "name", required = false) String name

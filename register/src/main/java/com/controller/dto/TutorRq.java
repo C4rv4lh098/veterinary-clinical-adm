@@ -3,6 +3,9 @@
 
 package com.controller.dto;
 //import com.model.Address;
+import com.model.Tutor;
+import com.model.Animal;
+import java.util.List;
 
 
 public class TutorRq {
@@ -25,11 +28,11 @@ public class TutorRq {
    private String street;
    private String number;
 
-
+   // private List<Animal> animals;
 
 
 //   public List<Animal> getAnimals() { return animals; }
-//
+
 //   public void setAnimals(List<Animal> animals) { this.animals = animals; }
 
 

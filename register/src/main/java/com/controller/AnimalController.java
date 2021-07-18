@@ -1,17 +1,13 @@
 //package com.veterinary_clinic_adm.register.controller;
 package com.controller;
 
-//import com.veterinary_clinic_adm.register.controller.dto.AnimalRq;
-//import com.veterinary_clinic_adm.register.controller.dto.AnimalRs;
+
 import com.controller.dto.AnimalRq;
 import com.controller.dto.AnimalRs;
 
-//import com.veterinary_clinic_adm.register.model.Animal;
 import com.model.Animal;
 
-//import com.veterinary_clinic_adm.register.repository.AnimalCustomRepository;
 import com.repository.AnimalCustomRepository;
-//import com.veterinary_clinic_adm.register.repository.AnimalRepository;
 import com.repository.AnimalRepository;
 
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +44,8 @@ public class AnimalController {
         this.animalCustomRepository = animalCustomRepository;
     }
 
-    @GetMapping("/")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/") 
     public List<AnimalRs> findAll() {
         var animals = animalRepository.findAll();
         return animals
@@ -57,14 +54,16 @@ public class AnimalController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/{animal_id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/{animal_id}") 
     public AnimalRs findByAnimalId(@PathVariable("animal_id") Long animal_id) {
         var animal = animalRepository.getOne(animal_id);
         return AnimalRs.converter(animal);
     }
 
-    @PostMapping("/")
-    public void savePerson(@RequestBody AnimalRq animal) {
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/animal") 
+    public ResponseEntity<?> savePerson(@RequestBody AnimalRq animal) {
         var a = new Animal();
         a.setId(animal.getId());
         a.setName(animal.getName());
@@ -72,11 +71,15 @@ public class AnimalController {
         a.setBreed(animal.getBreed());
         a.setSpecies(animal.getSpecies());
         a.setSex(animal.getSex());
-//        a.setTutorId(animal.getTutorId());
+        a.setTutorId(animal.getTutorId());
+        
         animalRepository.save(a);
+        return ResponseEntity.ok("Sucesso!");
+
     }
 
-    @PutMapping("/{animal_id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PutMapping("/{animal_id}") 
     public void updatePerson(@PathVariable("animal_id") Long animal_id, @RequestBody AnimalRq animal) throws Exception {
         var a = animalRepository.findById(animal_id);
 
@@ -87,14 +90,15 @@ public class AnimalController {
             animalSave.setBreed(animal.getBreed());
             animalSave.setSpecies(animal.getSpecies());
             animalSave.setSex(animal.getSex());
-//            animalSave.setTutorId(animal.getTutorId());
+            animalSave.setTutorId(animal.getTutorId());
             animalRepository.save(animalSave);
         } else {
             throw new Exception("Animal Não encontrado");
         }
     }
 
-    @GetMapping("/filter")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/filter") 
     public List<AnimalRs> findAnimalByName(@RequestParam("name") String name) {
         return this.animalRepository.findByNameContains(name)
                 .stream()
@@ -102,7 +106,8 @@ public class AnimalController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/filter/custom")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/filter/custom") 
     public List<AnimalRs> findAnimalByCustom(
             @RequestParam(value = "age", required = false) String age,
             @RequestParam(value = "name", required = false) String name

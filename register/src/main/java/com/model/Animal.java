@@ -7,11 +7,9 @@ import javax.persistence.*;
 @Table(name = "animal")
 
 public class Animal{
+   
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-//    @Column(name = "tutor_id")
-//    private int tutor_id;
 
    @Column(name = "animal_id")
    private Long animal_id;
@@ -31,7 +29,18 @@ public class Animal{
    @Column(name = "sex")
    private String sex;
 
-   @OneToOne
+   // @OneToOne(cascade = CascadeType.ALL)
+   //  @JoinTable(name = "emp_workstation", 
+   //    joinColumns = 
+   //      { @JoinColumn(name = "employee_id", referencedColumnName = "id") },
+   //    inverseJoinColumns = 
+   //      { @JoinColumn(name = "workstation_id", referencedColumnName = "id") })
+  
+   // @ManyToOne(cascade = CascadeType.ALL)
+   // @JoinTable(name="tutor")
+   // @JoinColumn(name = "tutor_id")
+   
+   @ManyToOne(cascade = CascadeType.ALL)
    @JoinColumn(name = "tutor_id")
    private Tutor tutor_id;
 
@@ -67,6 +76,7 @@ public class Animal{
    public void setSex(String sex) { this.sex = sex; }
 
 
+   
    public Tutor getTutorId() { return tutor_id; }
 
    public void setTutorId(Tutor tutor_id) { this.tutor_id = tutor_id; }

@@ -22,7 +22,7 @@ export class TutorService {
   }
 
   createTutor(tutor: Tutor): Observable<any> {
-    return this.http.post<any>(this.baseUrl, tutor);
+    return this.http.post<any>(this.baseUrl + 'tutor', tutor);
   }
 
   updateTutor(tutor_id: number, tutor: Tutor): Observable<any> {

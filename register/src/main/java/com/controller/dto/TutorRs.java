@@ -6,6 +6,8 @@ package com.controller.dto;
 //import com.model.Address;
 
 import com.model.Tutor;
+import com.model.Animal;
+import java.util.List;
 
 public class TutorRs {
 
@@ -25,6 +27,8 @@ public class TutorRs {
    private String district;
    private String street;
    private String number;
+
+//    private List<Animal> animals;
 
 
 
@@ -49,15 +53,17 @@ public class TutorRs {
        tutor.setNumber(t.getNumber());
        tutor.setDistrict(t.getDistrict());
 
+    //    tutor.setAnimals(t.getAnimals());
+
 
     
        return tutor;
    }
 
 
-//   public List<Animal> getAnimals() { return animal_id; }
-//
-//   public void setAnimals(List<Animal> animal_id) { this.animal_id = animal_id; }
+//   public List<Animal> getAnimals() { return animals; }
+
+//   public void setAnimals(List<Animal> animals) { this.animals = animals; }
 
 //chaves
 //

@@ -3,6 +3,8 @@ package com.model;
 
 
 import javax.persistence.*;
+import com.model.Animal;
+import java.util.List;
 
 @Entity
 @Table(name = "tutor")
@@ -55,6 +57,9 @@ public class Tutor{
    @Column(name = "number")
    private String number;
 
+   // private List<Animal> animals;
+
+
 
 //chaves
    public Long getTutor_id() { return tutor_id; }
@@ -69,10 +74,11 @@ public class Tutor{
 //
 //    public void setAddress_id(Address address_id) { this.address_id = address_id; }
 
-
+//   @OneToMany(mappedBy = "tutor_id", cascade = CascadeType.ALL)
 //   public List<Animal> getAnimals() { return animals; }
-//
+
 //   public void setAnimals(List<Animal> animals) { this.animals = animals; }
+
 
 
    public String getCpf() { return cpf; }

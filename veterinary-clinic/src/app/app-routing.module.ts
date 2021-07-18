@@ -25,16 +25,14 @@ const routes: Routes = [
   {path:'lista/tutor', component:TutorListComponent},
   {path:'cadastro/tutor', component:CreateTutorComponent},
 
+  //######----GERAL------#########
   {path:'consulta', component:ConsultaComponent},
   {path:'cadastro', component:CadastroComponent},
   {path:'agendamento', component:AgendamentoComponent},
   {path:'home', component:HomeComponent},
   {path:'', component:HomeComponent},
 
-  // {
-  //   path: 'cadastro',
-  //   loadChildren: () => import('./cadastro/cadastro.module').then(m => m.CadastroModule),
-  // },
+  
 ];
 
 @NgModule({

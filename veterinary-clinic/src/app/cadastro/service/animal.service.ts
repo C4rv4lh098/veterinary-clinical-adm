@@ -14,20 +14,20 @@ export class AnimalService {
 
   
 
-  getAnimal() : Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(this.baseUrl);
+  getAnimal() : Observable<any> {
+    return this.http.get<any>(this.baseUrl);
   }
 
   getAnimalById(animal_id: number): Observable<any> {
     return this.http.get(this.baseUrl + animal_id);
   }
 
-  createAnimal(animal: Animal): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(this.baseUrl, animal);
+  createAnimal(animal: Animal): Observable<any> {
+    return this.http.post<any>(this.baseUrl + 'animal', animal);
   }
 
-  updateAnimal(animal_id: number, animal: Animal): Observable<ApiResponse> {
-    return this.http.put<ApiResponse>(this.baseUrl + animal.animal_id, animal);
+  updateAnimal(animal_id: number, animal: Animal): Observable<any> {
+    return this.http.put<any>(this.baseUrl + animal_id, animal);
   }
 
 //   deleteAnimal(animal_id: number): Observable<ApiResponse> {

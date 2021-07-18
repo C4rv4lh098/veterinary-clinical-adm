@@ -15,19 +15,19 @@ public class AnimalRs {
    private String breed;
    private String species;
    private String sex;
-//   private Tutor tutor_id;
+   private Tutor tutor_id;
 
    public static AnimalRs converter(Animal t) {
 
        var animal = new AnimalRs();
 
-//       animal.setTutorId(t.getTutorId());
        animal.setId(t.getId());
        animal.setAge(t.getAge());
        animal.setBreed(t.getBreed());
        animal.setSpecies(t.getSpecies());
        animal.setSex(t.getSex());
        animal.setName(t.getName());
+       animal.setTutorId(t.getTutorId());
 
        return animal;
    }
@@ -62,9 +62,9 @@ public class AnimalRs {
    public void setSex(String sex) { this.sex = sex; }
 
 
-//   public Tutor getTutorId() { return tutor_id; }
-//
-//   public void setTutorId(Tutor tutor_id) { this.tutor_id = tutor_id; }
+  public Tutor getTutorId() { return tutor_id; }
+
+  public void setTutorId(Tutor tutor_id) { this.tutor_id = tutor_id; }
 
 
 }

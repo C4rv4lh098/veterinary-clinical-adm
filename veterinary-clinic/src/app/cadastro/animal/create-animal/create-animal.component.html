@@ -40,6 +40,13 @@
    <form #form="ngForm" class="card-body"(ngSubmit)="onSubmit()">
 
     <div class="form-row">
+      <div class="form-group">
+        <label for="name">TUTOR ID</label>
+        <input placeholder="Insira Id do tutor" type="number" class="form-control" id="tutor_id" required [(ngModel)]="animal.tutor_id" name="tutor_id">
+    </div>
+    </div>
+
+    <div class="form-row">
     <div class="form-group col-md-6">
       <label for="name">NOME</label>
       <input placeholder="Nome" type="text" class="form-control" id="name" required [(ngModel)]="animal.name" name="name">
