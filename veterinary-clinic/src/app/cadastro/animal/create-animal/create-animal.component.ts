@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 import {Router} from '@angular/router';
-import * as internal from 'stream';
+// import * as internal from 'stream';
 import { TutorService } from '../../service/tutor.service';
 import { Tutor } from '../../model/tutor.model';
 // import { Tutor } from '../../model/tutor.model';
@@ -20,14 +20,11 @@ export class CreateAnimalComponent implements OnInit {
 
   // tutor: Tutor = new Tutor();
   animal: Animal = new Animal();
-  res: Tutor = new Tutor();
   submitted = false;
-  tutor_id: any;
   constructor(
-    private tutorService: TutorService,
     private animalService: AnimalService,
     private router: Router
-    
+
     ) { }
 
   ngOnInit() {
@@ -42,5 +39,5 @@ export class CreateAnimalComponent implements OnInit {
     this.router.navigate(['/cadastro']);
   }
 
- 
+
 }

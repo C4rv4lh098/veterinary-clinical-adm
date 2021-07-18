@@ -19,7 +19,7 @@ export class ListAgendaComponent implements OnInit {
     this.agenda = this.agendaService.getAgenda();
   }
 
-  deleteEmployee(id: number) {
+  deleteAgenda(id: number) {
     this.agendaService.deleteAgenda(id)
       .subscribe(
         data => {
