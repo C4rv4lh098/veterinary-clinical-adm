@@ -1,0 +1,152 @@
+version: '3'
+services:
+
+
+  # docker container run --name mysqldb --network employee-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=bootdb -d mysql:8
+
+  # ----------------------
+  # frontend-angular:
+  #   image: nginx:1.17.10-alpine
+  #   ports:
+  #     - 20080:80
+  #   volumes:
+  #     - ./frontend-angular/dist/frontend-angular:/usr/share/nginx/html
+# -------------------
+
+  # angular-service:
+  #   container_name: angular-veterinary
+  #   build:
+  #     context: ./
+  #     dockerfile: ./veterinary-clinic/Dockerfile 
+  #   volumes: 
+  #     - ./veterinary-clinic:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #   ports:
+  #     - "4201:4200"
+  #   command: >
+  #     bash -c "npm start"
+  
+  # docker-nginx:
+  #   container_name: docker-nginx
+  #   build: 
+  #     context: ./
+  #     dockerfile: ./veterinary-clinic/Dockerfile
+  #   ports:
+  #     - "80:80"
+  #   command: ["nginx", "-g", "daemon off;"]
+  #   links:
+  #     - angular-service
+
+    # links:
+    #   - schedulingservice
+  # db:
+  #   image: mysql
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD=password
+
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #           - 8080:8080
+# ---------------------
+  # db:
+  #   image: mysql:8
+  #   ports:
+  #     - "3306:3306"
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=password
+  #     # - MYSQL_DATABASE=bootdb
+  #   labels:
+  #     - environment:development
+  #   networks:
+  #     - scheduling-mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    depends_on:
+      - db
+    ports:
+      - "8888:80"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=dbclinic 
+    links:
+      - db 
+  #   networks:
+  #     - scheduling-mysql
+  # # -----------------------------------
+  #   labels:
+  #     - environment:development
+
+  db:
+    image: mysql:latest
+    # command: --default-authentication-plugin=mysql_native_password 
+    command: --init-file /init.sql
+    ports:
+      - '3306:3306'
+    environment:
+      # - MYSQL_ROOT_HOST=%
+      - MYSQL_DATABASE=dbclinic
+      # - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=password
+      # - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./docker/volume_mysql:/var/lib/mysql
+      - ./init.sql:/init.sql
+
+    # environment:
+    #   - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+    #   - PROFILE=dev
+
+  # networks:
+  #   scheduling-mysql:
+  #     driver: bridge
+
+  
+  schedulingservice:
+    # command: mvn clean install
+    build:
+      context: ./
+      dockerfile: ./schedulingservice/Dockerfile
+    image: schedulingservice/api
+
+    ports:
+      - "8081:8081"
+      - "5056:5006"
+    volumes:
+      - "./schedulingservice:/home/schedulingservice"
+    environment:
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - PROFILE=dev
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=dbclinic
+#      - MYSQL_ROOT_HOST= '%'
+    links:
+      - db
+
+
+  register:
+    # command: mvn clean install
+    build:
+      context: ./
+      dockerfile: ./register/Dockerfile
+    image: register/api
+
+    ports:
+      - "8082:8082"
+      - "5007:5007"
+    volumes:
+      - "./register:/home/register"
+    environment:
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5007 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - PROFILE=dev
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=dbclinic
+#      - MYSQL_ROOT_HOST= '%'
+    links:
+      - db
+      
+ 
