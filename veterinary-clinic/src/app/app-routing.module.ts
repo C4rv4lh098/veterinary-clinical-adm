@@ -1,8 +1,8 @@
-import { ConsultaComponent } from '../app/consulta/consulta.component';
+import { NgModule } from '@angular/core';
+
 import { CadastroComponent } from '../app/cadastro/cadastro.component';
 import { AgendamentoComponent } from '../app/agendamento/agendamento.component';
 import { HomeComponent } from '../app/home/home.component';
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { CreateTutorComponent } from '../app/cadastro/tutor/create-tutor/create-tutor.component';
@@ -26,13 +26,12 @@ const routes: Routes = [
   {path:'cadastro/tutor', component:CreateTutorComponent},
 
   //######----GERAL------#########
-  {path:'consulta', component:ConsultaComponent},
   {path:'cadastro', component:CadastroComponent},
   {path:'agendamento', component:AgendamentoComponent},
   {path:'home', component:HomeComponent},
   {path:'', component:HomeComponent},
 
-  
+
 ];
 
 @NgModule({

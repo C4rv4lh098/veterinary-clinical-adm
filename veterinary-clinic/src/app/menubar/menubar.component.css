@@ -1,3 +1,5 @@
-.card{
-  width: 20rem; height: 55rem;
+.btn{
+  border-radius: 2rem;
+  border-width: 0.3rem;
+  border-color: seagreen;
 }
