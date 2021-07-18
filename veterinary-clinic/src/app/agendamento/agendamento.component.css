@@ -1,7 +1,10 @@
 .card{
-  width: 20rem; height: 55rem;
-  margin-left: -19rem;
+  width: 20rem;
+  height: 35rem;
+  margin-left: -2rem;
 }
-#calendario{
-  margin-left: -74rem;
-}
+#formulario{
+  width: 95rem;
+  height: 35rem;
+  margin-left: auto;
+ } 

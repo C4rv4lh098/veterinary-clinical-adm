@@ -26,6 +26,10 @@ import { TutorListComponent} from "./cadastro/tutor/tutor-list/tutor-list.compon
 import { AnimalListComponent} from "./cadastro/animal/animal-list/animal-list.component";
 // import {DataTablesModule} from "angular-datatables";
 import { NgIterable } from '@angular/core';
+import { UpdateAgendaComponent } from './agendamento/calendar/update-agenda/update-agenda.component';
+import { CreateAgendaComponent } from './agendamento/calendar/create-agenda/create-agenda.component';
+import { ListAgendaComponent } from './agendamento/calendar/list-agenda/list-agenda.component';
+import { AgendamentoService } from './agendamento/service/agendamento.service';
 
 
 
@@ -47,7 +51,11 @@ import { NgIterable } from '@angular/core';
     UpdateTutorComponent,
 
     TutorListComponent,
-    AnimalListComponent
+    AnimalListComponent,
+
+    UpdateAgendaComponent,
+    CreateAgendaComponent,
+    ListAgendaComponent
 
   ],
   imports: [
@@ -65,6 +73,8 @@ import { NgIterable } from '@angular/core';
   providers:
   [ TutorService,
     AnimalService,
+
+    AgendamentoService,
     HttpClient,
     
     // HttpHandler
