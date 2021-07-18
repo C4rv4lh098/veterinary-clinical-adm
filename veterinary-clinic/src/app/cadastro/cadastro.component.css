@@ -1,10 +1,6 @@
 .card{
-  width: 20rem;
-  height: 55rem;
+  width: fit-content;
+  height: 39.2rem;
   margin-left: -2rem;
 }
-#formulario{
-  width: 95rem;
-  height: 55rem;
-  margin-left: -25rem;
-}
+
