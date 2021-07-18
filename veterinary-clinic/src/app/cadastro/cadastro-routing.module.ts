@@ -1,10 +1,11 @@
 // import { HomeComponent } from '../app/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {FormTutorComponent} from "./form-tutor/form-tutor.component";
+import { CreateTutorComponent } from './tutor/create-tutor/create-tutor.component'; 
 
 const routes: Routes = [
-  {path:'form-tutor', component:FormTutorComponent},
+  
+  {path:'tutor-create', component:CreateTutorComponent},
   // {path:'consulta', component:ConsultaComponent},
   // {path:'cadastro', component:CadastroComponent},
   // {path:'agendamento', component:AgendamentoComponent},
@@ -17,4 +18,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 // @ts-ignore
-export class AppRoutingModule { }
+export class CadastroRoutingModule { }

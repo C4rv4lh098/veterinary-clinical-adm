@@ -37,7 +37,7 @@ import java.util.Map;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/animal")
+@RequestMapping("/api/animal") @CrossOrigin(origins = "http://localhost:4200")
 public class AnimalController {
 
     private final AnimalRepository animalRepository;

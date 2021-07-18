@@ -39,6 +39,7 @@ public class TutorRs {
        tutor.setEmail(t.getEmail());
        tutor.setNationality(t.getNationality());
        tutor.setAge(t.getAge());
+       tutor.setPhone(t.getPhone());
 
        tutor.setCounty(t.getCounty());
        tutor.setState(t.getState());

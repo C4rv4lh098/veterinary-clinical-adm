@@ -10,32 +10,66 @@ import { HomeComponent } from '../app/home/home.component';
 import { HeaderComponent } from '../app/header/header.component';
 import { MenubarComponent } from '../app/menubar/menubar.component';
 import { CalendarComponent } from '../app/agendamento/calendar/calendar.component';
-import {FormTutorComponent} from "./cadastro/form-tutor/form-tutor.component";
-import {FormsModule} from "@angular/forms";
-import {CoreModule} from "./cadastro/core/core.module";
+
+import { CreateTutorComponent } from "./cadastro/tutor/create-tutor/create-tutor.component";
+
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { TutorService } from './cadastro/service/tutor.service';
+import { AnimalService } from './cadastro/service/animal.service';
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
+
+
+import { CreateAnimalComponent } from './cadastro/animal/create-animal/create-animal.component';
+import { UpdateAnimalComponent} from "./cadastro/animal/update-animal/update-animal.component";
+import { UpdateTutorComponent} from "./cadastro/tutor/update-tutor/update-tutor.component";
+import { TutorListComponent} from "./cadastro/tutor/tutor-list/tutor-list.component";
+import { AnimalListComponent} from "./cadastro/animal/animal-list/animal-list.component";
+// import {DataTablesModule} from "angular-datatables";
+import { NgIterable } from '@angular/core';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AgendamentoComponent,
-    // CadastroComponent,
     ConsultaComponent,
     HomeComponent,
     HeaderComponent,
     MenubarComponent,
     CalendarComponent,
-    FormTutorComponent
+    CadastroComponent,
+
+    CreateTutorComponent,
+    CreateAnimalComponent,
+
+    UpdateAnimalComponent,
+    UpdateTutorComponent,
+
+    TutorListComponent,
+    AnimalListComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CoreModule
+
+    BrowserModule,
+    HttpClientModule,
+  
+    ReactiveFormsModule,
+    
+    // DataTablesModule
   ],
-  providers: [],
+  providers:
+  [ TutorService,
+    AnimalService,
+    HttpClient,
+    
+    // HttpHandler
+  ],
   exports: [
-    FormTutorComponent
   ],
   bootstrap: [AppComponent]
 })
