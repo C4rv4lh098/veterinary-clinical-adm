@@ -134,7 +134,7 @@ referência: https://www.hostinger.com.br/tutoriais/install-maven-ubuntu
 
 7.2.1.Comece atualizando o índice do pacote usando:
 
-sudo apt-get update
+		sudo apt-get update
 
 7.2.2.Depois, é preciso instalar o Maven com o comando:
 
@@ -142,7 +142,7 @@ sudo apt-get -y install maven
 
 7.2.3.Você pode verificar a instalação do Maven usando o comando (funciona com os dois métodos de instalação):
 
-mvn -version
+		mvn -version
 
 7.2.4.Agora você precisará entrar no diretório schedulingservice e register para iniciar a instalação das dependências presentes no pom e gerar os arquivos .jar que serão copiados para dentro do container onde as aplicações Spring Boot será iniciada.
 
@@ -160,9 +160,9 @@ mvn clean install
 
 		sudo apt-get install docker
 
-sudo apt-get install docker-compose
+		sudo apt-get install docker-compose
 
-sudo usermod -aG docker $USER
+		sudo usermod -aG docker $USER
 
 
 7.2.6.Feito isto, agora você pode subir o docker com os seguintes comando:
