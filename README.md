@@ -86,7 +86,7 @@ Microsserviço Agendamento:
 Victoria -
 Micro serviço Cadastro: 
 	Este serviço envolve Cadastrar, Editar e Listar Tutores e Animais no Sistema, fornecendo as APIs.
-obs: Aluna também é a responsável pela Infraestrutura com Docker.
+<br>obs: Aluna também é a responsável pela Infraestrutura com Docker.
 
 6 - A descrição dos padrões de projeto utilizados e a justificativa para uso:
 
@@ -106,11 +106,11 @@ Vamos começar pelas dependências do front-end
 
 7.1.1.Instale o NodeJs com o seguinte comando:
 
-sudo apt-get install nodejs
+		sudo apt-get install nodejs
 
 7.1.2.Verifique se foi instalado corretamente:
 
-node --version  	e 	npm --version 
+		node --version  	e 	npm --version 
 
 7.1.3.Entre no diretório do front-end:
 
@@ -138,7 +138,7 @@ referência: https://www.hostinger.com.br/tutoriais/install-maven-ubuntu
 
 7.2.2.Depois, é preciso instalar o Maven com o comando:
 
-sudo apt-get -y install maven
+		sudo apt-get -y install maven
 
 7.2.3.Você pode verificar a instalação do Maven usando o comando (funciona com os dois métodos de instalação):
 
@@ -146,9 +146,9 @@ sudo apt-get -y install maven
 
 7.2.4.Agora você precisará entrar no diretório schedulingservice e register para iniciar a instalação das dependências presentes no pom e gerar os arquivos .jar que serão copiados para dentro do container onde as aplicações Spring Boot será iniciada.
 
-cd schedulingservice
+		cd schedulingservice
 
-mvn clean install
+		mvn clean install
 
 		cd ../register
 
