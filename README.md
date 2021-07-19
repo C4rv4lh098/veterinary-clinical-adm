@@ -9,24 +9,23 @@
 
 Os sistemas para clínicas veterinárias encontrados no mercado usam apenas um software de agendamento e notificação, não possui um sistema integrado com o laboratório bem como não apresenta um histórico posterior do paciente. Essa foi a descrição do pibic realizado em 2019, tomando-o como base refizemos com novas tecnologias visando melhor desempenho do software na parte administrativa. O software cadastra novos tutores e seus respectivos animais no banco de dados e agenda novas consultas na clínica. 
 
-3 - O desenho da arquitetura da solução e as tecnologias utilizadas em cada parte: 
-
+3 - O desenho da arquitetura da solução e as tecnologias utilizadas em cada parte: <br>
 
 ![readme](https://user-images.githubusercontent.com/65140429/126097352-05081937-4057-4d0b-b56b-7515e6390dec.png)
 
 
-4 - A descrição e justificativa para uso de cada tecnologia escolhida; 
+4 - A descrição e justificativa para uso de cada tecnologia escolhida; <br>
 
 Tecnologias Utilizadas:
-Angular CLI: 12.0.5
-Bootstrap: 5.0.2,
-Spring Boot: 2.5.2
-Java: 1.8 e 1.11
-Hibernate:5
-MySql: 8.0.25
-Docker:20.10.2
-docker-compose1.25.0
-Apache Maven 3.6.3
+<br>Angular CLI: 12.0.5
+<br>Bootstrap: 5.0.2,
+<br>Spring Boot: 2.5.2
+<br>Java: 1.8 e 1.11
+<br>Hibernate:5
+<br>MySql: 8.0.25
+<br>Docker:20.10.2
+<br>docker-compose1.25.0
+<br>Apache Maven 3.6.3
 
 4.1 ANGULAR CLI
 No front-end foi utilizado uma framework chamada angular, esse framework trabalha com SPA (Single Page Application) ou seja carrega apenas a página em que o usuário está e não toda aplicação de uma vez economizando tempo e largura de banda do que o envio constante de HTML. 
