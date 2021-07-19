@@ -10,7 +10,8 @@
 Os sistemas para clínicas veterinárias encontrados no mercado usam apenas um software de agendamento e notificação, não possui um sistema integrado com o laboratório bem como não apresenta um histórico posterior do paciente. Essa foi a descrição do pibic realizado em 2019, tomando-o como base refizemos com novas tecnologias visando melhor desempenho do software na parte administrativa. O software cadastra novos tutores e seus respectivos animais no banco de dados e agenda novas consultas na clínica. 
 
 3 - O desenho da arquitetura da solução e as tecnologias utilizadas em cada parte: 
-    
+
+![alt text](https://github.com/C4rv4lh098/veterinary-clinic-adm/main/readme.png?raw=true)
     
 4 - A descrição e justificativa para uso de cada tecnologia escolhida; 
 
