@@ -32,7 +32,7 @@ export class UpdateAgendaComponent implements OnInit {
     this.agendaService.updateAgenda(this.id, this.agenda)
       .subscribe(data => console.log(data), error => console.log(error));
     this.agenda = new Agenda();
-    this.router.navigate(['/agendamento/editar']);
+    this.router.navigate(['/agendamento']);
     }
 
 

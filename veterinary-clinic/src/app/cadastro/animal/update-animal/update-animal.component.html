@@ -1,4 +1,6 @@
-<div class="card" style="background-color: #198754;">
+<app-header></app-header>
+
+<div style="background-color: #198754;">
   <h3 class="card-body" style="text-align: center; color: rgb(255, 255, 255); font-weight: bolder; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; ">ATUALIZAR ANIMAL</h3>
 </div>
 
@@ -32,7 +34,7 @@
     <label for="name">SPÉCIE</label>
     <input placeholder="espécie" type="text" class="form-control" id="species" [(ngModel)]="animal.species" name="species">
   </div>
-  
+
   <div class="form-group col-md-2">
     <label for="name">SEXO</label>
     <select placeholder="sexo" for="inputState" type="text" class="form-control" id="sex" required [(ngModel)]="animal.sex" name="sex">
@@ -43,7 +45,7 @@
   </div>
 
   <button [disabled]="form.invalid" style='margin-right:16px' class="btn btn-success">ATUALIZAR</button>
-  <button style='margin-right:16px' routerLink="/cadastro" class="btn btn-success">VOLTAR</button>
+  <button style='margin-right:16px' routerLink="/cadastro" class="btn btn-outline-info">VOLTAR</button>
 
   </form>
 </div>

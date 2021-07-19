@@ -1,9 +1,11 @@
 <!-- <a routerLink="/tutor-create" routerLinkActive="selected">Create tutor</a><br> -->
-<div class="card" style="background-color: #198754;">
+<app-header></app-header>
+
+<div style="background-color: #198754;">
   <h3 class="card-body" style="text-align: center; color: rgb(255, 255, 255); font-weight: bolder; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; ">CADASTRAR TUTOR</h3>
 </div>
 
-<div class="card" [hidden]="submitted">
+<div [hidden]="submitted">
    <form #form="ngForm" class="card-body"(ngSubmit)="onSubmit()">
 
     <div class="form-row">
@@ -11,13 +13,13 @@
       <label for="name">NOME</label>
       <input placeholder="Nome" type="text" class="form-control" id="name" required [(ngModel)]="tutor.name" name="name">
     </div>
-    
+
     <div class="form-group col-md-6">
       <label for="name">IDADE</label>
       <input placeholder="Idade" type="text" class="form-control" id="age" required [(ngModel)]="tutor.age" name="age">
     </div>
     </div>
-  
+
     <div class="form-row">
     <div class="form-group col-md-6">
       <label for="name">CPF</label>
@@ -41,7 +43,7 @@
       <input placeholder="(00)000000-0000" type="text" class="form-control" id="phone" required [(ngModel)]="tutor.phone" name="phone">
     </div>
   </div>
-  
+
     <div class="form-row">
     <div class="form-group col-md-4">
       <label for="name">NACIONALIDADE</label>
@@ -52,7 +54,7 @@
       <label for="name">CIDADE</label>
       <input placeholder="Cidade" type="text" class="form-control" id="county" required [(ngModel)]="tutor.county" name="county">
     </div>
-    
+
 
      <div class="form-group col-md-4">
        <label for="name">ESTADO</label>
@@ -70,7 +72,7 @@
       <input placeholder="Bairro" type="text" class="form-control" id="district" required [(ngModel)]="tutor.district" name="district">
     </div>
     </div>
-    
+
     <div class="form-row">
     <div class="form-group col-md-9">
       <label for="name">RUA</label>

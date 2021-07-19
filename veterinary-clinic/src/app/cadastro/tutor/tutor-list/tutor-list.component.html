@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <div class="card">
 <!-- <div class="card-body"> -->
 <div class="panel panel-success">
@@ -28,7 +30,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let tutor of tutors | async">
-            
+
             <td>{{tutor.tutor_id}}</td>
             <td>{{tutor.name}}</td>
             <td>{{tutor.cpf}}</td>
@@ -42,7 +44,7 @@
             <td>{{tutor.district}}</td>
             <td>{{tutor.street}}</td>
             <td>{{tutor.number}}</td>
-            
+
           </tr>
         </tbody>
       </table>

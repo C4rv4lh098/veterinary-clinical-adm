@@ -1,42 +1,10 @@
-<!-- <h3>Create Animal</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">NOME</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="animal.name" name="name">
-    </div>
-
-    <div class="form-group">
-      <label for="name">IDADE</label>
-      <input type="text" class="form-control" id="age" required [(ngModel)]="animal.age" name="age">
-    </div>
-
-    <div class="form-group">
-      <label for="name">RAÇA</label>
-      <input type="text" class="form-control" id="breed" required [(ngModel)]="animal.breed" name="breed">
-    </div>
-
-    <div class="form-group">
-      <label for="name">SPÉCIE</label>
-      <input type="text" class="form-control" id="species" required [(ngModel)]="animal.species" name="species">
-    </div>
-
-    <div class="form-group">
-      <label for="name">SEXO</label>
-      <input type="text" class="form-control" id="sex" required [(ngModel)]="animal.sex" name="sex">
-    </div>
-
-
-    <button type="submit" class="btn btn-success">CADASTRO</button>
-  </form>
-</div> -->
-
+<app-header></app-header>
 <!-- <a routerLink="/tutor-create" routerLinkActive="selected">Create tutor</a><br> -->
 <div class="card" style="background-color: #198754;">
   <h3 class="card-body" style="text-align: center; color: rgb(255, 255, 255); font-weight: bolder; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; ">CADASTRAR ANIMAL</h3>
 </div>
 
-<div class="card" [hidden]="submitted">
+<div [hidden]="submitted">
    <form #form="ngForm" class="card-body"(ngSubmit)="onSubmit()">
 
     <div class="form-row">
@@ -51,16 +19,16 @@
       <label for="name">NOME</label>
       <input placeholder="Nome" type="text" class="form-control" id="name" required [(ngModel)]="animal.name" name="name">
     </div>
-    
+
     <div class="form-group col-md-6">
       <label for="name">IDADE</label>
       <input placeholder="Idade" type="text" class="form-control" id="age" required [(ngModel)]="animal.age" name="age">
     </div>
     </div>
-  
+
     <div class="form-row">
     <div class="form-group col-md-5">
-      <label for="name">SPÉCIE</label>
+      <label for="name">ESPÉCIE</label>
       <input placeholder="espécie" type="text" class="form-control" id="species" required [(ngModel)]="animal.species" name="species">
     </div>
 
@@ -68,14 +36,14 @@
       <label for="name">RAÇA</label>
       <input placeholder="Raça" type="text" class="form-control" id="breed" required [(ngModel)]="animal.breed" name="breed">
     </div>
-    
+
     <div class="form-group col-md-2">
       <label for="name">SEXO</label>
       <select placeholder="sexo" for="inputState" type="text" class="form-control" id="sex" required [(ngModel)]="animal.sex" name="sex">
         <option>M</option>
         <option>F</option>
       </select>
-      
+
     </div>
     </div>
 
