@@ -1,7 +1,7 @@
 # veterinary-clinical-adm
 
 1 - Integrantes:                       Matrículas:
-    Raphaela Goes                      2019003109
+<br>Raphaela Goes                      2019003109
 <br>Rodrigo Moura de Carvalho          2019003056
 <br>Victoria Senedesse                 2019003092
     
