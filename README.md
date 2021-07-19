@@ -76,3 +76,99 @@ O Bootstrap é totalmente personalizável: é amigável ao desenvolvedor e pode 
 Agile Responsive: Bootstrap é uma plataforma totalmente responsiva com suporte para layout de grade fluida. Ele cria um site pronto para celular de maneira fácil e suave e define o design da web de acordo com as dimensões do dispositivo específico.
 Consistência do Bootstrap: 
 Sites ou aplicativos móveis feitos com a tecnologia bootstrap podem fazer você sentir a incrível combinação de desenvolvedores e designers que garantem a consistência.
+
+5 A descrição de cada funcionalidade implementada e o responsável por sua implementação;
+
+Raphaela - 
+Microsserviço Agendamento:
+	A aplicação cadastra, edita, lista e exclui os agendamentos dos tutores e animais do sistema através de uma rest api.
+
+Victoria -
+Micro serviço Cadastro: 
+	Este serviço envolve Cadastrar, Editar e Listar Tutores e Animais no Sistema, fornecendo as APIs.
+obs: Aluna também é a responsável pela Infraestrutura com Docker.
+
+6 - A descrição dos padrões de projeto utilizados e a justificativa para uso:
+
+Repository Pattern
+Sua utilização contribui no isolamento da camada de acesso a dados (DAL) com a camada de negócio, mais conhecida como camada de domínio.
+O Repository Pattern permite um encapsulamento da lógica de acesso a dados, impulsionando o uso da injeção de dependência (DI) e proporcionando uma visão mais orientada a objetos das interações com a DAL.
+Com o uso desse pattern, aplicamos em nossa camada de domínio o princípio da persistência ignorante (PI), ou seja, nossas entidades da camada de negócio, não devem sofrer impactos pela forma em que são persistidas no banco de dados.
+Data Transfer Object – DTO
+Um objeto simples usado para transferir dados de um local a outro na aplicação, sem lógica de negócios em seus objetos e comumente associado à transferência de dados entre uma camada de visão (view layer) e outra de persistência dos dados (model layer). Muito frequentemente usado em conjunto com um DAO.
+A classe de negócios do lado do servidor normalmente busca dados do banco de dados e preenche o POJO e os envia ao cliente ou os passa por valor. Para o cliente, o objeto de transferência é somente leitura. O cliente pode criar seu próprio objeto de transferência e passá-lo ao servidor para atualizar os valores no banco de dados de uma só vez.
+
+7 - Link para o manual (passo a passo) para instalação e configuração do sistema.
+
+Vamos começar pelas dependências do front-end
+
+7.1Aplicação Frontend
+
+7.1.1.Instale o NodeJs com o seguinte comando:
+
+sudo apt-get install nodejs
+
+7.1.2.Verifique se foi instalado corretamente:
+
+node --version  	e 	npm --version 
+
+7.1.3.Entre no diretório do front-end:
+
+		cd  veterinary-clinic
+
+7.1.4.Rode os seguintes comandos para iniciar a instalação e iniciar a aplicação front-end.
+		
+		npm install
+		
+		npm start
+
+7.1.5.Volte para o diretório principal veterinary-clinical-adm
+		
+		cd ..
+
+7.2.
+BACKEND
+Serviços Cadastro e Agendamento.
+
+referência: https://www.hostinger.com.br/tutoriais/install-maven-ubuntu
+
+7.2.1.Comece atualizando o índice do pacote usando:
+
+sudo apt-get update
+
+7.2.2.Depois, é preciso instalar o Maven com o comando:
+
+sudo apt-get -y install maven
+
+7.2.3.Você pode verificar a instalação do Maven usando o comando (funciona com os dois métodos de instalação):
+
+mvn -version
+
+7.2.4.Agora você precisará entrar no diretório schedulingservice e register para iniciar a instalação das dependências presentes no pom e gerar os arquivos .jar que serão copiados para dentro do container onde as aplicações Spring Boot será iniciada.
+
+cd schedulingservice
+
+mvn clean install
+
+		cd ../register
+
+		mvn clean install
+
+		cd ..
+
+7.2.5. Após a instalação das dependências verifique se você está no diretório veterinary-clinical-adm, agora é preciso instalar o docker e o docker-compose.
+
+		sudo apt-get install docker
+
+sudo apt-get install docker-compose
+
+sudo usermod -aG docker $USER
+
+
+7.2.6.Feito isto, agora você pode subir o docker com os seguintes comando:
+
+		docker-compose build 
+
+		docker-compose up
+
+
