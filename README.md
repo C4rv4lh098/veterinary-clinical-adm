@@ -11,7 +11,7 @@ Os sistemas para clínicas veterinárias encontrados no mercado usam apenas um s
 
 3 - O desenho da arquitetura da solução e as tecnologias utilizadas em cada parte: 
 
-![alt text](https://github.com/C4rv4lh098/veterinary-clinic-adm/main/readme.png?raw=true)
+![alt text](https://github.com/C4rv4lh098/veterinary-clinic-adm/main/path/to/readme.png)
     
 4 - A descrição e justificativa para uso de cada tecnologia escolhida; 
 
