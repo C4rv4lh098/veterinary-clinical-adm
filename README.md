@@ -1,4 +1,4 @@
-# veterinary-clinical-adm
+# veterinary-clinical-adm => Clinica Veterinária RRV
 
 1 - Integrantes:                       Matrículas:
 <br>Raphaela Goes                      2019003109
@@ -38,7 +38,7 @@ Utilizamos a linguagem Java no back-end Java em paralelo com o Spring Boot. Algu
 O framework Spring Boot é uma microestrutura de código aberto. Algumas vantagens do Spring boot é a configuração automática. Independente, pois não há necessidade de implantar o aplicativo em um servidor web. Reduz o tempo de desenvolvimento e aumenta a produtividade no desenvolvimento do software. Ajuda a autoconfigurar todos os componentes para um aplicativo Spring de nível de produção.Torna mais fácil para criar e testar o software, fornecendo uma configuração padrão para testes de unidade e integração. Vem com servidores HTTP embutidos para testar aplicativos da web. Spring permite que você se conecte facilmente com banco de dados e serviços de fila e o principal o artefato Spring Boot pode ser implantado diretamente em containers Docker facilitando a criação de microsserviços rapidamente.
 O Hibernate é um framework Java que simplifica o desenvolvimento de aplicações Java para interagir com o banco de dados. É uma ferramenta de código aberto e leve. O Hibernate implementa as especificações do JPA (Java Persistence API) para persistência de dados. O desempenho do hibernate framework é rápido porque o cache é usado internamente no hibernate framework. HQL (Hibernate Query Language) é a versão orientada a objetos do SQL. Ele gera as consultas independentes do banco de dados. Portanto, não precisa escrever consultas específicas ao banco de dados. O framework Hibernate fornece a facilidade de criar as tabelas do banco de dados automaticamente. 
 
-4.4 DOCKER
+4.3 DOCKER
 O Docker foi projetado para tornar mais fácil criar, implantar e executar aplicativos usando contêineres.
 Os contêineres são úteis, pois permitem que um desenvolvedor empacote um aplicativo com todos os elementos de que precisa, como bibliotecas, etc., e envie-o como um pacote.
 Replicação - o Docker possui alta disponibilidade integrada. Quando você faz um contêiner Docker, outro é replicado. Isso garante que haja um contêiner de backup disponível caso ocorra algum erro.
@@ -46,7 +46,7 @@ Portabilidade - um dos principais benefícios do Docker é a sua portabilidade. 
 Escalabilidade - os contêineres do Docker também são fáceis de escalar. Depois que uma imagem estiver em execução, você pode dimensioná-la facilmente replicando o contêiner. Isso é realmente útil para desenvolvedores que precisam criar várias instâncias para teste, o que reduz o tempo de desenvolvimento.
 Desenvolvimento - Docker é útil para desenvolvedores que precisam executar rapidamente um punhado de pequenos aplicativos para teste, em vez de girar uma máquina virtual totalmente especificada para fazer o mesmo trabalho.
 
-4.5 DOCKER-COMPOSE
+4.4 DOCKER-COMPOSE
 O Docker Compose traz alguns benefícios como:
 Implantação de host único - Isso significa que você pode executar tudo em uma única peça de hardware;
 Configuração rápida e fácil - devido aos scripts YAML;
@@ -54,7 +54,7 @@ Alta produtividade - Docker Compose reduz o tempo que leva para realizar tarefas
 Segurança - Todos os contêineres são isolados uns dos outros, reduzindo o cenário de ameaças.
 Pode-se observar no arquivo todos os serviços usados neste projeto.
 
-4.6 MYSQL
+4.5 MYSQL
 Custo total de propriedade reduzido:
 MySql um dos mais populares sistemas de gerenciamento de banco de dados de código aberto que permite gerenciar banco de dados relacional. Como o MySql é de código aberto, você pode usar o MySql gratuitamente e, se quiser, pode personalizar seu código-fonte de acordo com suas necessidades. A maioria das empresas prefere o MySQL porque não precisa pagar nada por este excelente produto.
 Portabilidade:
@@ -62,7 +62,7 @@ MySQL é um servidor de banco de dados de plataforma cruzada. Ele pode ser execu
 Conectividade perfeita:
 Existem vários mecanismos de conexão seguros e contínuos disponíveis para conectar ao servidor MySQL. Essas conexões incluem pipes nomeados, soquetes TCP / IP e soquetes UNIX.
 
-4.7 BOOTSTRAP
+4.6 BOOTSTRAP
 O Bootstrap é Fácil de Usar: O Bootstrap é muito fácil e bastante simples de usar para projetar e desenvolver. Por ser um novo framework, há muito o que aprender com ele. Pode ser usado com CSS, LESS ou SaaS etc.
 Uma integração é bastante fácil: 
 Bootstrap é uma estrutura que é facilmente integrada a estruturas em massa, sem interrupções com sites existentes ou novos.
@@ -79,13 +79,16 @@ Agile Responsive: Bootstrap é uma plataforma totalmente responsiva com suporte 
 Consistência do Bootstrap: 
 Sites ou aplicativos móveis feitos com a tecnologia bootstrap podem fazer você sentir a incrível combinação de desenvolvedores e designers que garantem a consistência.
 
-5 A descrição de cada funcionalidade implementada e o responsável por sua implementação;
+5 - A descrição de cada funcionalidade implementada e o responsável por sua implementação;
 
-Raphaela - 
+Raphaela Goes - 
 Microsserviço Agendamento:
 	A aplicação cadastra, edita, lista e exclui os agendamentos dos tutores e animais do sistema através de uma rest api.
-
-Victoria -
+<br>Rodrigo Carvalho - 
+Micro serviço Controller:
+	Organiza as conexões das rotas.
+<br>obs: Aluno também ficou responsável pelo Banco de Dados, e montou a tela base do front-end.
+<br>Victoria Senedesse -
 Micro serviço Cadastro: 
 	Este serviço envolve Cadastrar, Editar e Listar Tutores e Animais no Sistema, fornecendo as APIs.
 <br>obs: Aluna também é a responsável pela Infraestrutura com Docker.
