@@ -1,9 +1,11 @@
 .card{
   width: fit-content;
-  height: 39.2rem;
+  height: 50.5rem;
   margin-left: -2rem;
+  margin-top: -0.5rem;
 }
 .container-fluid-image{
-  margin-left: -10rem;
+  margin-top: 5rem;
+  margin-left: -12rem;
 }
 

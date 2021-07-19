@@ -1,5 +1,9 @@
 .card{
   width: fit-content;
-  height: 39.2rem;
+  height: 50.5rem;
   margin-left: -2rem;
+}
+
+.container-fluid{
+  margin-top: -0.5rem;
 }

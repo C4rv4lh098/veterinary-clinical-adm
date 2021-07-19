@@ -1,19 +1,18 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
-      <h2>Agenda List</h2>
+      <h2>Lista de Agendamentos</h2><br>
     </div>
     <div class="panel-body">
       <table id="example" class="table table-striped table-bordered table-sm row-border hover" cellspacing="0" width="100%">
 
         <thead>
           <tr>
-            <th >consulta_id</th>
-            <th >tutor_id</th>
-            <th >animal_id</th>
-            <th >date</th>
-            <th >horain</th>
-            <th >horaout</th>
-            <th>Actions</th>
+            <th >Consulta identificador</th>
+            <th >Tutor identificador</th>
+            <th >Animal identificador</th>
+            <th >Data</th>
+            <th >Horario inicial</th>
+            <th >Horario final</th>
           </tr>
         </thead>
         <tbody>
@@ -24,10 +23,6 @@
             <td>{{agenda.date}}</td>
             <td>{{agenda.horain}}</td>
             <td>{{agenda.horaout}}</td>
-            
-              <td><button style='margin-right:16px' (click)="deleteAgenda(agenda.consulta_id)" class="btn btn-danger">Delete</button>
-                <button style='margin-right:16px' (click)="updateAgenda(agenda.consulta_id)" class="btn btn-success" style="margin-left: 10px">Edit details</button>
-              </td>
           </tr>
         </tbody>
       </table>

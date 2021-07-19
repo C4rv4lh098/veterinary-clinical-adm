@@ -11,10 +11,14 @@ import {UpdateTutorComponent} from "./cadastro/tutor/update-tutor/update-tutor.c
 import {UpdateAnimalComponent} from "./cadastro/animal/update-animal/update-animal.component";
 import {AnimalListComponent} from "./cadastro/animal/animal-list/animal-list.component";
 import {CreateAnimalComponent} from "./cadastro/animal/create-animal/create-animal.component";
+import { UpdateAgendaComponent } from './agendamento/calendar/update-agenda/update-agenda.component';
 
 
 
 const routes: Routes = [
+  //#####-----AGENDAMENTOS------########
+  {path:'agendamento/editar', component:UpdateAgendaComponent},
+
   //#####-----TUTOR------########
   {path:'atualiza/animal', component:UpdateAnimalComponent},
   {path:'lista/animal', component:AnimalListComponent},
